@@ -32,31 +32,29 @@ add_compile_options(-march=native -mfpmath=[your SIMD instruction set] -O3)
 
 using namespace math;
 
-bool test_cross2()
+bool test_cross()
 {
-	vec::f64<2> src = vec::f64<2>::one(0);
-	vec::f64<2, align::element> a = { vec::f64<2>::cross2(src, GL_CCW) };
-	vec::f64<2, align::vector>  b = { vec::f64<2>::cross2(src, GL_CW)  };
+	vec::f64<4> src[4] = { vec::f64<4>::identity(0),
+	                       vec::f64<4>::identity(1),
+			       vec::f64<4>::load3(vec::f64<3, align::vector>::cross3(src[0],src[1]).data(),0),
+			       vec::f64<2>::cross4(src[0],src[1],src[2]) };
 
-	printf("%-19s: %3s/%3s/%3s/%3s\n", "test_cross2", "typ", "cnt", "alg", "len");
-	printf("%+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", src[0], src[1], sizeof(f64), src.size(), alignof(src), sizeof(src));
-	printf("%+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", a[0], a[1], sizeof(f64), a.size(), alignof(a), sizeof(a));
-	printf("%+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", b[0], b[1], sizeof(f64), b.size(), alignof(b), sizeof(b));
+	vec::f64<2>   a[2] = { vec::f64<2>::cross2(src[0], GL_CCW), vec::f64<2>::cross2(src[0], GL_CW) };
+
+	printf("%-39s: %3s/%3s/%3s/%3s\n", "test_cross", "typ", "cnt", "alg", "len");
+	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", a[0][0], a[0][1], a[1][0], a[1][1], sizeof(f64), a[0].size(), alignof(a[0]), sizeof(a[0]));
+	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", src[2][0], src[2][1], src[2][2], src[2][3], sizeof(f64), (size_t)3, alignof(src[2]), sizeof(src[2]));
+	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", src[3][0], src[3][1], src[3][2], src[3][3], sizeof(f64), src[3].size(), alignof(src[3]), sizeof(src[3]));
 	return true;
 }
 
-bool test_cross3()
+bool test_dot()
 {
-	vec::f64<4> a = vec::f64<4>::one(0);
-	vec::f64<3> b = vec::f64<3>::one(1);;
-	vec::f64<3, align::vector> c = vec::f64<3>::cross3(a,b);
-	vec::f64<4, align::element> d = b + c;
-
-	printf("%-39s: %3s/%3s/%3s/%3s\n", "test_cross3", "typ", "cnt", "alg", "len");
-	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", a[0], a[1], a[2], a[3], sizeof(f64), a.size(), alignof(a), sizeof(a));
-	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", b[0], b[1], b[2], b[3], sizeof(f64), b.size(), alignof(b), sizeof(b));
-	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", c[0], c[1], c[2], c[3], sizeof(f64), c.size(), alignof(c), sizeof(c));
-	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", d[0], d[1], d[2], d[3], sizeof(f64), d.size(), alignof(d), sizeof(d));
+	vec::f64<4> a = {1,2,3,4};
+	vec::u64<4> b = {5,6,7,8};
+	vec::i64<4> c = {9,10,11,12};
+	vec::i32<4> d = {13,14,15,16};
+	printf("%f\n",vec::f64<4>::dot4(a,b,c,d));
 	return true;
 }
 ```
@@ -71,6 +69,14 @@ test_cross3                            : typ/cnt/alg/len
 +0.000000 +1.000000 +0.000000 -0.000000:   8/  3/  8/ 24
 +0.000000 +0.000000 +1.000000 -0.000000:   8/  3/ 32/ 32
 +0.000000 +1.000000 +1.000000 -0.000000:   8/  4/  8/ 32
+
+test_cross                             : typ/cnt/alg/len
+-0.000000 +1.000000 +0.000000 -1.000000:   8/  2/ 16/ 16
++0.000000 +0.000000 +1.000000 +0.000000:   8/  3/ 32/ 32
+-0.000000 +0.000000 -0.000000 +1.000000:   8/  4/ 32/ 32
+
+11874.000000
+
 ```
 # Links
 - [ITK]
