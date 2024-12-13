@@ -9,7 +9,7 @@ MLR implements aligned [fixed_valarray : std::array<T,N>] vector math using [Ope
 # Dependencies
 
 - [C++26]
-- [GL/glcorearb.h]
+- [OpenGL/KHR GL/glcorearb.h]
 
 ## Building
 
