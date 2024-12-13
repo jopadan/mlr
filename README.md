@@ -4,7 +4,7 @@ MLR - single-header-only [C++26] linear algebra math library
 
 ## About
 
-MLR implements aligned [fixed_valarray : std::array<T,N>] vector math using [GL/glcorearb.h] scalar types
+MLR implements aligned [fixed_valarray : std::array<T,N>] vector math using [OpenGL/KHR GL/glcorearb.h] scalar types
 
 # Dependencies
 
@@ -95,7 +95,7 @@ test_cross                             : typ/cnt/alg/len
 - [RGB565 to RGB888]
 
 [C++26]: https://isocpp.org/
-[GL/glcorearb.h]: https://github.com/KhronosGroup/OpenGL-Registry/blob/main/api/GL/glcorearb.h
+[OpenGL/KHR GL/glcorearb.h]: https://github.com/KhronosGroup/OpenGL-Registry/blob/main/api/GL/glcorearb.h
 [fixed_valarray : std::array<T,N>]: https://github.com/jopadan/mlr/blob/main/include/MLR/fixed_valarray.hpp
 [ITK]: https://github.com/InsightSoftwareConsortium/ITK
 [TrenchBroom/vm]: https://github.com/TrenchBroom/TrenchBroom/tree/master/lib/vm
