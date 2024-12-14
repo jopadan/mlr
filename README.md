@@ -82,16 +82,19 @@ test_dot4
 11874.000000
 ```
 # Links
-## Other Math Libraries
+## Other C++ Math Libraries
 - [ITK][7]
 - [vxl/vnl][8]
 - [Terathon-Math-Library][9]
 - [mr-math][10]
 - [versor][11]
-## Quake Math Libraries
+## Quake C++ Math Libraries
 - [TrenchBroom/vm][4]
 - [QF/simd][5]
-- [fte-team/fteqw][6]
+- [fakk2-rework][20]
+- [DOOM-3-BFG/idlib][21]
+## War for the Overlord C++ Math Library 
+- [CML][19]
 ## Math code/tutorials
 - [Permutation][12]
 - [Parity Theorem for Permutations][13]
@@ -122,3 +125,6 @@ test_dot4
 [16]: https://catonif.github.io/cube/
 [17]: https://github.com/prideout/par/
 [18]: https://retrocomputing.stackexchange.com/questions/27400/what-is-the-most-accurate-way-to-map-6-bit-vga-palette-to-8-bit
+[19]: https://github.com/demianmnave/CML
+[20]: https://github.com/Sporesirius/fakk2-rework
+[21]: https://github.com/id-Software/DOOM-3-BFG/tree/master/neo/idlib/math
