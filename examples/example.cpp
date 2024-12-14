@@ -11,9 +11,11 @@ bool test_cross()
 
 	vec::f64<2>   a[2] = { vec::f64<2>::cross2(src[0], GL_CCW), vec::f64<2>::cross2(src[0], GL_CW) };
 
-	printf("%-39s: %3s/%3s/%3s/%3s\n", "test_cross", "typ", "cnt", "alg", "len");
+	printf("%-39s: %3s/%3s/%3s/%3s\n", "test_cross2", "typ", "cnt", "alg", "len");
 	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", a[0][0], a[0][1], a[1][0], a[1][1], sizeof(f64), a[0].size(), alignof(a[0]), sizeof(a[0]));
+	printf("%-39s: %3s/%3s/%3s/%3s\n", "test_cross3", "typ", "cnt", "alg", "len");
 	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", src[2][0], src[2][1], src[2][2], src[2][3], sizeof(f64), (size_t)3, alignof(src[2]), sizeof(src[2]));
+	printf("%-39s: %3s/%3s/%3s/%3s\n", "test_cross4", "typ", "cnt", "alg", "len");
 	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", src[3][0], src[3][1], src[3][2], src[3][3], sizeof(f64), src[3].size(), alignof(src[3]), sizeof(src[3]));
 	return true;
 }
