@@ -70,13 +70,16 @@ test_cross3                            : typ/cnt/alg/len
 +0.000000 +0.000000 +1.000000 -0.000000:   8/  3/ 32/ 32
 +0.000000 +1.000000 +1.000000 -0.000000:   8/  4/  8/ 32
 
-test_cross                             : typ/cnt/alg/len
+
+test_cross2                            : typ/cnt/alg/len
 -0.000000 +1.000000 +0.000000 -1.000000:   8/  2/ 16/ 16
+test_cross3                            : typ/cnt/alg/len
 +0.000000 +0.000000 +1.000000 +0.000000:   8/  3/ 32/ 32
+test_cross4                            : typ/cnt/alg/len
 -0.000000 +0.000000 -0.000000 +1.000000:   8/  4/ 32/ 32
 
+test_dot4                              
 11874.000000
-
 ```
 # Links
 ## Other Math Libraries

@@ -25,6 +25,7 @@ bool test_dot()
 	vec::u64<4> b = {5,6,7,8};
 	vec::i64<4> c = {9,10,11,12};
 	vec::i32<4> d = {13,14,15,16};
+	printf("%-39s\n", "test_dot4");
 	printf("%f\n",vec::f64<4>::dot4(a,b,c,d));
 	return true;
 }
