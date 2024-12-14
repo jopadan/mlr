@@ -1,15 +1,15 @@
 # mlr
 
-MLR - single-header-only [C++26] linear algebra math library
+MLR - single-header-only [C++26][1] linear algebra math library
 
 ## About
 
-MLR implements aligned [fixed_valarray : std::array<T,N>] vector math using [OpenGL/KHR GL/glcorearb.h] scalar types
+MLR implements aligned [fixed_valarray : std::array<T,N>][3] vector math using [OpenGL/KHR][2] scalar types
 
 # Dependencies
 
-- [C++26]
-- [OpenGL/KHR GL/glcorearb.h]
+- [C++26][1]
+- [OpenGL/KHR][2]
 
 ## Building
 
@@ -79,35 +79,43 @@ test_cross                             : typ/cnt/alg/len
 
 ```
 # Links
-- [ITK]
-- [TrenchBroom/vm]
-- [vxl/vnl]
-- [mr-math]
-- [versor]
-- [Terathon-Math-Library]
-- [Terathon Software LLC]
-- [Permutation]
-- [Parity Theorem for Permutations]
-- [Levi-Civita symbol]
-- [Hodge star operator]
-- [How to Generate a Cube's vertices and tris]
-- [par]
-- [RGB565 to RGB888]
+## Other Math Libraries
+- [ITK][7]
+- [vxl/vnl][8]
+- [Terathon-Math-Library][9]
+- [mr-math][10]
+- [versor][11]
+## Quake Math Libraries
+- [TrenchBroom/vm][4]
+- [QF/simd][5]
+- [fte-team/fteqw][6]
+## Math code/tutorials
+- [Permutation][12]
+- [Parity Theorem for Permutations][13]
+- [Levi-Civita symbol][14]
+- [Hodge star operator][15]
+- [How to Generate a Cube's vertices and tris][16]
+- [par][17]
+- [RGB565 to RGB888][18]
 
-[C++26]: https://isocpp.org/
-[OpenGL/KHR GL/glcorearb.h]: https://github.com/KhronosGroup/OpenGL-Registry/blob/main/api/GL/glcorearb.h
-[fixed_valarray : std::array<T,N>]: https://github.com/jopadan/mlr/blob/main/include/MLR/fixed_valarray.hpp
-[ITK]: https://github.com/InsightSoftwareConsortium/ITK
-[TrenchBroom/vm]: https://github.com/TrenchBroom/TrenchBroom/tree/master/lib/vm
-[vxl/vnl]: https://github.com/vxl/vxl/tree/master/core/vnl
-[mr-math]: https://github.com/4J-company/mr-math/
-[versor]: https://github.com/wolftype/versor/
-[Terathon-Math-Library]: https://github.com/EricLengyel/Terathon-Math-Library
-[Terathon Software LLC]: https://terathon.com/index.html
-[Permutation]: https://en.wikipedia.org/wiki/Permutation
-[Parity Theorem for Permutations]: https://maa.org/book/export/html/115646
-[Levi-Civita symbol]: https://en.wikipedia.org/wiki/Levi-Civita_symbol
-[Hodge star operator]: https://en.wikipedia.org/wiki/Hodge_star_operator
-[How to Generate a Cube's vertices and tris]: https://catonif.github.io/cube/
-[par]: https://github.com/prideout/par/
-[RGB565 to RGB888]: https://retrocomputing.stackexchange.com/questions/27400/what-is-the-most-accurate-way-to-map-6-bit-vga-palette-to-8-bit
+[1]: https://isocpp.org/
+[2]: https://github.com/KhronosGroup/OpenGL-Registry/blob/main/api/GL/glcorearb.h
+[3]: https://github.com/jopadan/mlr/blob/main/include/MLR/fixed_valarray.hpp
+
+[4]: https://github.com/TrenchBroom/TrenchBroom/tree/master/lib/vm
+[5]: http://github.com/quakeforge/quakeforge/tree/master/include/QF/simd
+[6]: http://github.com/fte-team/fteqw
+
+[7]: https://github.com/InsightSoftwareConsortium/ITK
+[8]: https://github.com/vxl/vxl/tree/master/core/vnl
+[9]: https://github.com/EricLengyel/Terathon-Math-Library
+[10]: https://github.com/4J-company/mr-math/
+[11]: https://github.com/wolftype/versor/
+
+[12]: https://en.wikipedia.org/wiki/Permutation
+[13]: https://maa.org/book/export/html/115646
+[14]: https://en.wikipedia.org/wiki/Levi-Civita_symbol
+[15]: https://en.wikipedia.org/wiki/Hodge_star_operator
+[16]: https://catonif.github.io/cube/
+[17]: https://github.com/prideout/par/
+[18]: https://retrocomputing.stackexchange.com/questions/27400/what-is-the-most-accurate-way-to-map-6-bit-vga-palette-to-8-bit

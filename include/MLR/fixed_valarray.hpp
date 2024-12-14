@@ -116,8 +116,11 @@ struct alignas(((N == N_POW2 && A != align::element) || A == align::vector) ? N_
 	}
 
 	/* aligned component swizzle */
+	inline constexpr fixed_valarray<T,2> swap2() const { return (fixed_valarray<T,2>){ (*this)[1], (*this)[0] }; }
+
 	template<typename... I>
 	inline fixed_valarray<T, sizeof...(I)> permute(const I... args) { return (fixed_valarray<T,sizeof...(I)>){ this[args % N]... }; }
+
 	inline constexpr fixed_valarray<T,N> rotl(size_t i = 1)
 	{
 		fixed_valarray<T,N> dst;
@@ -170,16 +173,13 @@ struct alignas(((N == N_POW2 && A != align::element) || A == align::vector) ? N_
 		return (fixed_valarray<T,3>){ src[0], src[1], src[2] };
 	}
 
+	/* sign manipulations */
 	inline constexpr fixed_valarray<T,2> neg2(uint8_t mod, uint8_t val = 0)
 	{
 		return (fixed_valarray<T,2>) { (0 % mod == val) ? - (*this)[0] : (*this)[0],
 		                               (1 % mod == val) ? - (*this)[1] : (*this)[1] };
 	}
 
-	inline constexpr fixed_valarray<T,2> swap2() const
-	{
-		return (fixed_valarray<T,2>){ (*this)[1], (*this)[0] };
-	}
 	/* determinants */
 	static inline constexpr T det2(const fixed_valarray<T,2> a, const fixed_valarray<T,2> b)
 	{
