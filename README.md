@@ -90,7 +90,6 @@ test_dot4
 - [versor][11]
 ## Quake C++ Math Libraries
 - [TrenchBroom/vm][4]
-- [QF/simd][5]
 - [fakk2-rework][20]
 - [DOOM-3-BFG/idlib][21]
 ## War for the Overworld C++ Math Library 
