@@ -91,7 +91,7 @@ test_dot4
 ## Quake C++ Math Libraries
 - [TrenchBroom/vm][4]
 - [fakk2-rework][20]
-- [DOOM-3-BFG/idlib][21]
+- [Prey2006/neo/idlib/math][21]
 ## War for the Overworld C++ Math Library 
 - [CML][19]
 ## Math code/tutorials
@@ -126,4 +126,4 @@ test_dot4
 [18]: https://retrocomputing.stackexchange.com/questions/27400/what-is-the-most-accurate-way-to-map-6-bit-vga-palette-to-8-bit
 [19]: https://github.com/demianmnave/CML
 [20]: https://github.com/Sporesirius/fakk2-rework
-[21]: https://github.com/id-Software/DOOM-3-BFG/tree/master/neo/idlib/math
+[21]: https://github.com/FriskTheFallenHuman/Prey2006/blob/master/neo/idlib/math
