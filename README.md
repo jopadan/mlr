@@ -93,7 +93,7 @@ test_dot4
 - [QF/simd][5]
 - [fakk2-rework][20]
 - [DOOM-3-BFG/idlib][21]
-## War for the Overlord C++ Math Library 
+## War for the Overworld C++ Math Library 
 - [CML][19]
 ## Math code/tutorials
 - [Permutation][12]
