@@ -4,7 +4,7 @@ mlr - single-header-only [C++26][1] linear algebra math library
 
 ## About
 
-mlr implements aligned array [arr : std::array<T,N>][3] for n-dim vec/quat type math using [OpenGL/KHR][2] scalar types
+mlr implements aligned array [arr : std::array<T,N>][3] based vector [vec::type<T,N,A>][4] type for N-dimensional linear algebra math using [OpenGL/KHR][2] scalar types
 
 # Dependencies
 
@@ -94,48 +94,49 @@ test_dot4
 ```
 # Links
 ## Other C++ Math Libraries
-- [ITK][7]
-- [vxl/vnl][8]
-- [Terathon-Math-Library][9]
-- [mr-math][10]
-- [versor][11]
+- [ITK][8]
+- [vxl/vnl][9]
+- [Terathon-Math-Library][10]
+- [mr-math][11]
+- [versor][12]
 ## Quake C++ Math Libraries
-- [TrenchBroom/vm][4]
-- [fakk2-rework][20]
-- [Prey2006/neo/idlib/math][21]
+- [TrenchBroom/vm][5]
+- [fakk2-rework][21]
+- [Prey2006/neo/idlib/math][22]
 ## War for the Overworld C++ Math Library 
-- [CML][19]
+- [CML][20]
 ## Math code/tutorials
-- [Permutation][12]
-- [Parity Theorem for Permutations][13]
-- [Levi-Civita symbol][14]
-- [Hodge star operator][15]
-- [How to Generate a Cube's vertices and tris][16]
-- [par][17]
-- [RGB565 to RGB888][18]
+- [Permutation][13]
+- [Parity Theorem for Permutations][14]
+- [Levi-Civita symbol][15]
+- [Hodge star operator][16]
+- [How to Generate a Cube's vertices and tris][17]
+- [par][18]
+- [RGB565 to RGB888][19]
 
 [1]: https://isocpp.org/
 [2]: https://github.com/KhronosGroup/OpenGL-Registry/blob/main/api/GL/glcorearb.h
 [3]: https://github.com/jopadan/mlr/blob/main/include/mlr/array.hpp
+[4]: https://github.com/jopadan/mlr/blob/main/include/mlr/vector.hpp
 
-[4]: https://github.com/TrenchBroom/TrenchBroom/tree/master/lib/vm
-[5]: http://github.com/quakeforge/quakeforge/tree/master/include/QF/simd
-[6]: http://github.com/fte-team/fteqw
+[5]: https://github.com/TrenchBroom/TrenchBroom/tree/master/lib/vm
+[6]: http://github.com/quakeforge/quakeforge/tree/master/include/QF/simd
+[7]: http://github.com/fte-team/fteqw
 
-[7]: https://github.com/InsightSoftwareConsortium/ITK
-[8]: https://github.com/vxl/vxl/tree/master/core/vnl
-[9]: https://github.com/EricLengyel/Terathon-Math-Library
-[10]: https://github.com/4J-company/mr-math/
-[11]: https://github.com/wolftype/versor/
+[8]: https://github.com/InsightSoftwareConsortium/ITK
+[9]: https://github.com/vxl/vxl/tree/master/core/vnl
+[10]: https://github.com/EricLengyel/Terathon-Math-Library
+[11]: https://github.com/4J-company/mr-math/
+[12]: https://github.com/wolftype/versor/
 
-[12]: https://en.wikipedia.org/wiki/Permutation
-[13]: https://maa.org/book/export/html/115646
-[14]: https://en.wikipedia.org/wiki/Levi-Civita_symbol
-[15]: https://en.wikipedia.org/wiki/Hodge_star_operator
-[16]: https://catonif.github.io/cube/
-[17]: https://github.com/prideout/par/
-[18]: https://retrocomputing.stackexchange.com/questions/27400/what-is-the-most-accurate-way-to-map-6-bit-vga-palette-to-8-bit
-[19]: https://github.com/demianmnave/CML
-[20]: https://github.com/Sporesirius/fakk2-rework
-[21]: https://github.com/FriskTheFallenHuman/Prey2006/blob/master/neo/idlib/math
+[13]: https://en.wikipedia.org/wiki/Permutation
+[14]: https://maa.org/book/export/html/115646
+[15]: https://en.wikipedia.org/wiki/Levi-Civita_symbol
+[16]: https://en.wikipedia.org/wiki/Hodge_star_operator
+[17]: https://catonif.github.io/cube/
+[18]: https://github.com/prideout/par/
+[19]: https://retrocomputing.stackexchange.com/questions/27400/what-is-the-most-accurate-way-to-map-6-bit-vga-palette-to-8-bit
+[20]: https://github.com/demianmnave/CML
+[21]: https://github.com/Sporesirius/fakk2-rework
+[22]: https://github.com/FriskTheFallenHuman/Prey2006/blob/master/neo/idlib/math
 
