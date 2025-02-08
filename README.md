@@ -4,7 +4,7 @@ mlr - single-header-only [C++26][1] linear algebra math library
 
 ## About
 
-mlr implements aligned array [arr : std::array<T,N>][3] based vector [vec::type<T,N,A>][4] type for N-dimensional linear algebra math using [OpenGL/KHR][2] scalar types
+mlr implements aligned array [arr : std::array<T,N>][3] based vector [vec::type<T,N,A>][4] type for N-dimensional linear algebra math using [OpenGL/KHR][2] and [Quake][5] scalar types
 
 # Dependencies
 
