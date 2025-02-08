@@ -1,8 +1,13 @@
 #pragma once
 
-/* matrix type */
-namespace mat
+#include <mlr/vector.hpp>
+
+namespace math::mat
 {
+	template<scalar T, size_t COLS, size_t ROWS = 1, enum align AV = align::adaptive, enum align AM = align::matrix>
+	struct type : arr<vec::type<T,ROWS,A>,COLS, A>
+	{
+	};
 	template<typ::sca T, size_t COLS, size_t ROWS = 1>
 		using type = std::conditional_t<COLS == 1, vec::type<T,ROWS>, vec::type<T,ROWS>[COLS]>;
 

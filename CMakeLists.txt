@@ -30,14 +30,14 @@ if(OpenGL_Found)
 add_compile_options(-DHAVE_GLCOREARB_H=1)
 endif()
 
-add_library( MLR INTERFACE )
-target_include_directories( MLR INTERFACE
+add_library( mlr INTERFACE )
+target_include_directories( mlr INTERFACE
         PUBLIC_HEADER $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
-install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/MLR DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} COMPONENT headers)
+install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/mlr DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} COMPONENT headers)
 
 add_executable( example examples/example.cpp )
-target_link_libraries( example MLR )
+target_link_libraries( example mlr )
 

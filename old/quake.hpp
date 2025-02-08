@@ -28,36 +28,6 @@
 #include <GL/glu.h>
 #include <GL/glcorearb.h>
 
-namespace stdx = std::experimental;
-using namespace stdx::parallelism_v2;
-
-using qboolean        = khronos_boolean_enum_t;
-const qboolean qfalse = KHRONOS_FALSE;
-const qboolean qtrue  = KHRONOS_TRUE;
-using qint8_t         = khronos_int8_t;
-using quint8_t        = khronos_uint8_t;
-using qint16_t        = khronos_int16_t;
-using quint16_t       = khronos_uint16_t;
-using qint32_t        = khronos_int32_t;
-using quint32_t       = khronos_uint32_t;
-using qint64_t        = khronos_int64_t;
-using quint64_t       = khronos_uint64_t;
-using qintptr_t       = khronos_intptr_t;
-using quintptr_t      = khronos_uintptr_t;
-using qssize_t        = khronos_ssize_t;
-using qsize_t         = khronos_usize_t;
-using qutime_ns_t     = khronos_utime_nanoseconds_t;
-using qstime_ns_t     = khronos_stime_nanoseconds_t;
-using qtime_ns_t      = qutime_ns_t;
-using vecf_t          = khronos_float_t;
-using vecd_t          = GLdouble;
-using vec_t           = vecf_t;
-using qbyte           = quint8_t;
-using qindex          = GLuint;
-using qint            = GLint;
-using qsizei          = GLsizei;
-using qbitfield32_t   = GLbitfield;
-using qbitfield16_t   = quint16_t;
 
 template<typename T>
 concept arithmetic = std::integral<T> || std::floating_point<T>;

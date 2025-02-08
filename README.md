@@ -1,10 +1,10 @@
 # mlr
 
-MLR - single-header-only [C++26][1] linear algebra math library
+mlr - single-header-only [C++26][1] linear algebra math library
 
 ## About
 
-MLR implements aligned [fixed_valarray : std::array<T,N>][3] vector math using [OpenGL/KHR][2] scalar types
+mlr implements aligned array [arr : std::array<T,N>][3] for n-dim vec/quat type math using [OpenGL/KHR][2] scalar types
 
 # Dependencies
 
@@ -28,7 +28,7 @@ add_compile_options(-march=native -mfpmath=[your SIMD instruction set] -O3)
 ## Usage
 
 ```c++
-#include <MLR/mlr.hpp>
+#include <mlr/vector.hpp>
 
 using namespace math;
 
@@ -41,10 +41,10 @@ bool test_cross()
 
 	vec::f64<2>   a[2] = { vec::f64<2>::cross2(src[0], GL_CCW), vec::f64<2>::cross2(src[0], GL_CW) };
 
-	printf("%-39s: %3s/%3s/%3s/%3s\n", "test_cross", "typ", "cnt", "alg", "len");
-	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", a[0][0], a[0][1], a[1][0], a[1][1], sizeof(f64), a[0].size(), alignof(a[0]), sizeof(a[0]));
-	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", src[2][0], src[2][1], src[2][2], src[2][3], sizeof(f64), (size_t)3, alignof(src[2]), sizeof(src[2]));
-	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", src[3][0], src[3][1], src[3][2], src[3][3], sizeof(f64), src[3].size(), alignof(src[3]), sizeof(src[3]));
+	a[0].print_header(4,"test_cross2");
+	a[0].print(4);
+	src[2].print(4);
+	src[3].print(4);
 	return true;
 }
 
@@ -54,29 +54,40 @@ bool test_dot()
 	vec::u64<4> b = {5,6,7,8};
 	vec::i64<4> c = {9,10,11,12};
 	vec::i32<4> d = {13,14,15,16};
+	printf("%-39s\n", "test_dot4");
 	printf("%f\n",vec::f64<4>::dot4(a,b,c,d));
 	return true;
 }
+
+int main(int argc, char** argv)
+{
+	test_cross();
+	vec::f32<4> d = { 5,6,7,8 };
+	vec::f32<4, align::scalar> c = { 1,2,3,4 };
+	vec::f32<3> a = { 5,6,7 };
+	vec::f32<3, align::vector> b = { 1,2,3 };
+	a+=b;
+	b+=a;
+	a.print();
+	b.print();
+	d.print();
+	c.print();
+	printf("\n");
+	test_dot();
+	printf("\n");
+	exit(EXIT_SUCCESS);
+}
+
 ```
 ```sh
-test_cross2        : typ/cnt/alg/len
-+1.000000 +0.000000:   8/  2/ 16/ 16
--0.000000 +1.000000:   8/  2/  8/ 16
-+0.000000 -1.000000:   8/  2/ 16/ 16
-
-test_cross3                            : typ/cnt/alg/len
-+1.000000 +0.000000 +0.000000 +0.000000:   8/  4/ 32/ 32
-+0.000000 +1.000000 +0.000000 -0.000000:   8/  3/  8/ 24
-+0.000000 +0.000000 +1.000000 -0.000000:   8/  3/ 32/ 32
-+0.000000 +1.000000 +1.000000 -0.000000:   8/  4/  8/ 32
-
-
-test_cross2                            : typ/cnt/alg/len
--0.000000 +1.000000 +0.000000 -1.000000:   8/  2/ 16/ 16
-test_cross3                            : typ/cnt/alg/len
-+0.000000 +0.000000 +1.000000 +0.000000:   8/  3/ 32/ 32
-test_cross4                            : typ/cnt/alg/len
--0.000000 +0.000000 -0.000000 +1.000000:   8/  4/ 32/ 32
+|test_cross2                            | typ|alg|vec|alg|mode           |cnt
+|-0.00e+00 +1.00e+00 +0.00e+00 -1.00e+00|   8|  8| 16| 16|adaptive/vector|2
+|+0.00e+00 +0.00e+00 +1.00e+00 +0.00e+00|   8|  8| 32| 32|adaptive/vector|4
+|-0.00e+00 +0.00e+00 -0.00e+00 +1.00e+00|   8|  8| 32| 32|adaptive/vector|4
+|+6.00e+00 +8.00e+00 +1.00e+01 +4.56e-41|   4|  4| 12|  4|adaptive/scalar|3
+|+7.00e+00 +1.00e+01 +1.30e+01 +4.56e-41|   4|  4| 16| 16|         vector|3
+|+5.00e+00 +6.00e+00 +7.00e+00 +8.00e+00|   4|  4| 16| 16|adaptive/vector|4
+|+1.00e+00 +2.00e+00 +3.00e+00 +4.00e+00|   4|  4| 16|  4|         scalar|4
 
 test_dot4                              
 11874.000000
@@ -105,7 +116,7 @@ test_dot4
 
 [1]: https://isocpp.org/
 [2]: https://github.com/KhronosGroup/OpenGL-Registry/blob/main/api/GL/glcorearb.h
-[3]: https://github.com/jopadan/mlr/blob/main/include/MLR/fixed_valarray.hpp
+[3]: https://github.com/jopadan/mlr/blob/main/include/mlr/array.hpp
 
 [4]: https://github.com/TrenchBroom/TrenchBroom/tree/master/lib/vm
 [5]: http://github.com/quakeforge/quakeforge/tree/master/include/QF/simd
@@ -127,3 +138,4 @@ test_dot4
 [19]: https://github.com/demianmnave/CML
 [20]: https://github.com/Sporesirius/fakk2-rework
 [21]: https://github.com/FriskTheFallenHuman/Prey2006/blob/master/neo/idlib/math
+

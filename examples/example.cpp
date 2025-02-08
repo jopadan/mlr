@@ -1,4 +1,4 @@
-#include <MLR/mlr.hpp>
+#include <mlr/vector.hpp>
 
 using namespace math;
 
@@ -11,14 +11,13 @@ bool test_cross()
 
 	vec::f64<2>   a[2] = { vec::f64<2>::cross2(src[0], GL_CCW), vec::f64<2>::cross2(src[0], GL_CW) };
 
-	printf("%-39s: %3s/%3s/%3s/%3s\n", "test_cross2", "typ", "cnt", "alg", "len");
-	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", a[0][0], a[0][1], a[1][0], a[1][1], sizeof(f64), a[0].size(), alignof(a[0]), sizeof(a[0]));
-	printf("%-39s: %3s/%3s/%3s/%3s\n", "test_cross3", "typ", "cnt", "alg", "len");
-	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", src[2][0], src[2][1], src[2][2], src[2][3], sizeof(f64), (size_t)3, alignof(src[2]), sizeof(src[2]));
-	printf("%-39s: %3s/%3s/%3s/%3s\n", "test_cross4", "typ", "cnt", "alg", "len");
-	printf("%+8f %+8f %+8f %+8f: %3zu/%3zu/%3zu/%3zu\n", src[3][0], src[3][1], src[3][2], src[3][3], sizeof(f64), src[3].size(), alignof(src[3]), sizeof(src[3]));
+	a[0].print_header(4,"test_cross2");
+	a[0].print(4);
+	src[2].print(4);
+	src[3].print(4);
 	return true;
 }
+
 bool test_dot()
 {
 	vec::f64<4> a = {1,2,3,4};
@@ -29,9 +28,20 @@ bool test_dot()
 	printf("%f\n",vec::f64<4>::dot4(a,b,c,d));
 	return true;
 }
+
 int main(int argc, char** argv)
 {
 	test_cross();
+	vec::f32<4> d = { 5,6,7,8 };
+	vec::f32<4, align::scalar> c = { 1,2,3,4 };
+	vec::f32<3> a = { 5,6,7 };
+	vec::f32<3, align::vector> b = { 1,2,3 };
+	a+=b;
+	b+=a;
+	a.print();
+	b.print();
+	d.print();
+	c.print();
 	printf("\n");
 	test_dot();
 	printf("\n");
