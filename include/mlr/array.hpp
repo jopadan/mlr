@@ -22,7 +22,7 @@ struct alignas((((N == N_POW2) && !((uint8_t)A & (uint8_t)align::scalar)) || (ui
 	{
 		printf("|%-39s|", description);
 		if(print_alignment)
-			printf("%3s|%3s|%3s|%3s|%-15s|%s", "typ", "alg", "vec", "alg", "mode", "cnt");
+			printf(" %3s|%3s|%3s|%3s|%-15s|%s", "typ", "alg", "vec", "alg", "mode", "cnt");
 		std::cout << std::endl;
 	}
 	void print(size_t cnt = N)
