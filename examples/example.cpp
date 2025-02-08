@@ -13,8 +13,10 @@ bool test_cross()
 
 	a[0].print_header(4,"test_cross2");
 	a[0].print(4);
+	print_alignment = false;
 	src[2].print(4);
 	src[3].print(4);
+	print_alignment = true;
 	return true;
 }
 
