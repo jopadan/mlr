@@ -1,8 +1,9 @@
 #pragma once
 
 #include <mlr/array.hpp>
-
-namespace math::vec
+namespace math
+{
+namespace vec
 {
 template<scalar T = float, size_t N = 3, enum align A = align::adaptive>
 struct type : arr<T,N,A>
@@ -225,15 +226,15 @@ struct type : arr<T,N,A>
 	static inline constexpr type<T,3> laplace3(const type<T,3> a, const type<T,4> b)
 	{
 		return (type<T,3>){ det2(a.yz(), b.yz()),
-		                      det2(a.xz(), b.xz()),
-		                      det2(a.xy(), b.xy()) };
+		                    det2(a.xz(), b.xz()),
+		                    det2(a.xy(), b.xy()) };
 	}
 	static inline constexpr type<T,4> laplace4(const type<T,4> a, const type<T,4> b, const type<T,4> c)
 	{
 		return (type<T,4>){ det3(a.yzw(), b.yzw(), c.yzw()),
-		                      det3(a.xzw(), b.xzw(), c.xzw()),
-		                      det3(a.xyw(), b.xyw(), c.xyw()),
-		                      det3(a.xyz(), b.xyz(), c.xyz()) };
+		                    det3(a.xzw(), b.xzw(), c.xzw()),
+		                    det3(a.xyw(), b.xyw(), c.xyw()),
+		                    det3(a.xyz(), b.xyz(), c.xyz()) };
 	}
 	/* type products hodge/cross/laplace */
 	static inline constexpr type<T,2> cross2(const type<T,2> src, unsigned int winding = GL_CCW)
@@ -290,4 +291,14 @@ struct type : arr<T,N,A>
 	template<size_t N, enum align A = align::adaptive>
 	using u64 = type<u64,N,A>;
 
+
+};
+
+	/* quake vector types */
+	using vec_t = f32;
+
+	using vec2_t = vec::type<vec_t, 2>;
+	using vec3_t = vec::type<vec_t, 3>;
+	using vec4_t = vec::type<vec_t, 4>;
+	using vec5_t = vec::type<vec_t, 5>;
 };

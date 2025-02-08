@@ -27,7 +27,15 @@ struct alignas((((N == N_POW2) && !((uint8_t)A & (uint8_t)align::scalar)) || (ui
 	}
 	void print(size_t cnt = N)
 	{
-		printf("|%+.2e %+.2e %+.2e %+.2e|", (*this)[0], (*this)[1], (*this)[2], (*this)[3]);
+		std::cout << "|";
+
+		for(size_t i = 0; i < cnt; i++)
+		{
+			printf("%+-9.2e", (f64)(*this)[i]);
+			if(i != cnt - 1)
+				std::cout << " ";
+		}
+		std::cout << "|";
 		if(print_alignment)
 			printf(" %3zu|%3zu|%3zu|%3zu|%15s|%zu", sizeof(T), alignof(T), sizeof(*this), alignof(*this), ((uint8_t)A == (uint8_t)align::scalar ? "scalar" : (uint8_t)A == (uint8_t)align::vector ? "vector" : (uint8_t)A == (uint8_t)align::adaptive ? (std::filesystem::path("adaptive") / (N == N_POW2 ? "vector" : "scalar")) : "none").c_str(), (*this).size());
 		std::cout << std::endl;
