@@ -1,5 +1,7 @@
 #pragma once
 
+#include <mlr/vector.hpp>
+
 namespace math
 {
 	/* quake color */
