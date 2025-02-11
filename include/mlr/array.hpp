@@ -24,9 +24,9 @@ struct alignas((((N == N_POW2) && !((uint8_t)A & (uint8_t)align::scalar)) || (ui
 		str.resize(cnt * 10 + 2);
 		std::copy(description, description + strlen(description), &str.front() + 1);
 		str.front() = '|';
-		str.back()  = '|';
-		std::fill(&str[strlen(str.c_str())], &str.back() - 1, (char)' ');
-		std::cout << str;
+		std::fill(&str[strlen(str.c_str())], &str.back(), (char)' ');
+		*(char*)(&str.back() - 1) = (char)'|';
+		std::cout << str.c_str();
 		if(print_alignment)
 			printf(" %3s|%3s|%3s|%3s|%-15s|%s", "typ", "alg", "vec", "alg", "mode", "cnt");
 		std::cout << std::endl;
