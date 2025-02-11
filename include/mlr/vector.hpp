@@ -175,10 +175,15 @@ struct type : arr<T,N,A>
 	}
 
 	/* sign manipulations */
-	inline constexpr type<T,2> neg2(uint8_t mod, uint8_t val = 0)
+	inline constexpr type<T,N>& negate(size_t mod = 2, size_t val = 0)
 	{
-		return (type<T,2>) { (0 % mod == val) ? - (*this)[0] : (*this)[0],
-		                       (1 % mod == val) ? - (*this)[1] : (*this)[1] };
+		for(size_t i = 0; i < N; i++)
+			(*this)[i] = i % mod == val ? -(*this)[i] : (*this)[i];
+		return (*this);
+	}
+	inline constexpr type<T,N> negated(size_t mod = 2, size_t val = 0)
+	{
+		return type<T,N>(*this).negate();
 	}
 
 	/* scalar products dot */
@@ -239,7 +244,7 @@ struct type : arr<T,N,A>
 	/* type products hodge/cross/laplace */
 	static inline constexpr type<T,2> cross2(const type<T,2> src, unsigned int winding = GL_CCW)
 	{
-		return identity().neg2(2,1 - (winding % 2)) * src.swap2();
+		return identity().negate(2,1 - (winding % 2)) * src.swap2();
 	}
 	static inline constexpr type<T,3,align::vector> cross3(const type<T,3,align::vector> a, const type<T,3,align::vector> b)
 	{
@@ -249,6 +254,9 @@ struct type : arr<T,N,A>
 	{
 		return type<T,4>{-1,1,-1,1} * laplace4(a,b,c);
 	}
+	/* TODO */
+	/* add n-dimensional hodge and levi-civita */
+
 	/* rounding */
 	template<iscalar DST = T>
 	inline constexpr type<DST,N> roundf()
