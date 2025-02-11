@@ -14,8 +14,16 @@ enum class align : uint8_t
 	adaptive = 1 << 3,
 };
 
-template<scalar T, size_t N, enum align A = (std::bit_ceil<size_t>(N) != N ? (uint8_t)align::scalar : (uint8_t)align::vector) | (uint8_t)align::adaptive, size_t N_POW2 = std::bit_ceil<size_t>(N)>
-struct alignas((((N == N_POW2) && !((uint8_t)A & (uint8_t)align::scalar)) || (uint8_t)A & (uint8_t)align::vector) ? N_POW2 * std::max<size_t>(alignof(T),sizeof(T)) : std::max<size_t>(alignof(T),sizeof(T))) arr : std::array<T,N>
+template<scalar T, size_t N,
+enum align A = (std::bit_ceil<size_t>(N) != N ?
+(uint8_t)align::scalar : (uint8_t)align::vector) |
+(uint8_t)align::adaptive,
+size_t N_POW2 = std::bit_ceil<size_t>(N)>
+struct alignas((((N == N_POW2) && !((uint8_t)A & (uint8_t)align::scalar))
+            || (uint8_t)A & (uint8_t)align::vector) ?
+	    N_POW2 * std::max<size_t>(alignof(T),sizeof(T)) :
+	    std::max<size_t>(alignof(T),sizeof(T)))
+arr : std::array<T,N>
 {
 	size_t aligned_size() { return std::max<size_t>(alignof((*this)),(*this).size() * sizeof(T)); }
 	static constexpr void print_header(size_t cnt = N, const char* description = "")
