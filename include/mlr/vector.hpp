@@ -207,8 +207,8 @@ struct type : arr<T,N,A>
 	}
 	inline constexpr T lensqr() { return dot2((*this),(*this)); }
 	inline constexpr T len() { return sqrt(lensqr()); }
-	inline constexpr type<T,N> normalized() { T len = len(); return (len != (T)0 && len != (T)1) ? (*this)/len : (*this); }
-	inline constexpr type<T,N>& normalize()  { (*this) = normalized(); return (*this); }
+	inline constexpr type<T,N>& normalize()  { T len = len(); if(len == (T)0) (*this) = { 0 }; if(len != (T)1) (*this)/=len; return (*this); }
+	inline constexpr type<T,N> normalized() { type<T,N> dst = (*this); return dst.normalize(); }
 	static inline constexpr T distance(const type<T,N> a, const type<T,N> b) { return (b - a).len(); };
 
 	/* determinants */
