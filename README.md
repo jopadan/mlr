@@ -47,39 +47,28 @@ int main(int argc, char** argv)
 }
 ```
 ```fortran
-|vector             | typ|alg|vec|alg|mode           |cnt
-|+1.00e+00 +0.00e+00|   8|  8| 32| 32|adaptive/vector|4
-
-|cross2 GL_CCW/GL_CW| typ|alg|vec|alg|mode           |cnt
-|-0.00e+00 +1.00e+00|   8|  8| 16| 16|adaptive/vector|2
-|+0.00e+00 -1.00e+00|   8|  8| 16| 16|adaptive/vector|2
-
-|print_alignment=false                  |
-|+0.00e+00 +0.00e+00 +1.00e+00 +0.00e+00|
-|-0.00e+00 +0.00e+00 -0.00e+00 +1.00e+00|
-
-|add different alignment                | typ|alg|vec|alg|mode           |cnt
-|+6.00e+00 +8.00e+00 +1.00e+01 +0.00e+00|   4|  4| 12|  4|adaptive/scalar|3
-|+7.00e+00 +1.00e+01 +1.30e+01 -nan     |   4|  4| 16| 16|         vector|3
-|+5.00e+00 +6.00e+00 +7.00e+00 +8.00e+00|   4|  4| 16| 16|adaptive/vector|4
-|+1.00e+00 +2.00e+00 +3.00e+00 +4.00e+00|   4|  4| 16|  4|         scalar|4
-
-|vector                                 | typ|alg|vec|alg|mode           |cnt
-|+1.00e+00 +2.00e+00 +3.00e+00 +4.00e+00|   8|  8| 32| 32|adaptive/vector|4
-|+5.00e+00 +6.00e+00 +7.00e+00 +8.00e+00|   8|  8| 32| 32|adaptive/vector|4
-|+9.00e+00 +1.00e+01 +1.10e+01 +1.20e+01|   8|  8| 32| 32|adaptive/vector|4
-|+1.30e+01 +1.40e+01 +1.50e+01 +1.60e+01|   4|  4| 16| 16|adaptive/vector|4
-
-|dot4     | typ|alg|vec|alg|mode           |cnt
-|+1.19e+04|   8|  8|  8|  8|adaptive/vector|1
-
 |vector                                 | typ|alg|vec|alg|mode           |cnt
 |+1.00e+00 +0.00e+00 +0.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/vector|4
 |+0.00e+00 +1.00e+00 +0.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/vector|4
+|cross3                                 | typ|alg|vec|alg|mode           |cnt
 |+0.00e+00 +0.00e+00 +1.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/vector|4
-
 |cross4                                 | typ|alg|vec|alg|mode           |cnt
 |-0.00e+00 +0.00e+00 -0.00e+00 +1.00e+00|   4|  4| 16| 16|adaptive/vector|4
+|cross2 GL_CCW/GL_CW                    | typ|alg|vec|alg|mode           |cnt
+|-0.00e+00 +1.00e+00 +0.00e+00 -1.00e+00|   4|  4| 16| 16|adaptive/vector|4
+|dot4                                   | typ|alg|vec|alg|mode           |cnt
+|+0.00e+00 +0.00e+00 +0.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/vector|4
+|sum                                    | typ|alg|vec|alg|mode           |cnt
+|+1.00e+00 +1.00e+00 +1.00e+00 +1.00e+00|   4|  4| 16| 16|adaptive/vector|4
+
+|vector                       | typ|alg|vec|alg|mode           |cnt
+|+1.00e+00 +0.00e+00 +0.00e+00|   4|  4| 12|  4|adaptive/scalar|3
+|+0.00e+00 +1.00e+00 +0.00e+00|   4|  4| 12|  4|         scalar|3
+|+0.00e+00 +0.00e+00 +1.00e+00|   4|  4| 16| 16|         vector|3
+|un/aligned add               | typ|alg|vec|alg|mode           |cnt
+|+0.00e+00 +1.00e+00 +1.00e+00|   4|  4| 12|  4|adaptive/scalar|3
+|+1.00e+00 +0.00e+00 +1.00e+00|   4|  4| 12|  4|         scalar|3
+|+1.00e+00 +1.00e+00 +0.00e+00|   4|  4| 16| 16|         vector|3
 ```
 # Links
 ## Other C++ Math Libraries
