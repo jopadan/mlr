@@ -9,20 +9,20 @@ bool test_cross()
 			       vec::f64<4>::load3(vec::f64<3, align::vector>::cross3(src[0],src[1]).data(),0),
 			       vec::f64<2>::cross4(src[0],src[1],src[2]) };
 
+	src[0].print_header(4, "vector");
+	src[0].print(4);
+	src[1].print(4);
+	src[2].print_header(4, "cross3");
+	src[2].print(4);
+	src[3].print_header(4, "cross4");
+	src[3].print(4);
+	std::cout << std::endl;
 	src[0].print_header(2, "vector");
 	src[0].print(2);
 	vec::f64<2>   a[2] = { vec::f64<2>::cross2(src[0], GL_CCW), vec::f64<2>::cross2(src[0], GL_CW) };
-	std::cout << std::endl;
 	vec::f64<2>::print_header(2,"cross2 GL_CCW/GL_CW");
 	a[0].print(2);
 	a[1].print(2);
-
-	std::cout << std::endl;
-	print_alignment = false;
-	src[2].print_header(4, "print_alignment=false");
-	src[2].print(4);
-	src[3].print(4);
-	print_alignment = true;
 	std::cout << std::endl;
 	return true;
 }
@@ -62,18 +62,6 @@ int main(int argc, char** argv)
 	c.print(4);
 	std::cout << std::endl;
 	test_dot();
-	std::cout << std::endl;
-	vec4_t q1 = vec4_t::identity(0);
-	vec4_t q2 = vec4_t::identity(1);
-	vec4_t q3 = vec4_t::identity(2);
-	vec4_t q4 = vec4_t::cross4(q1,q2,q3);
-	q1.print_header(4, "vector");
-	q1.print(4);
-	q2.print(4);
-	q3.print(4);
-	std::cout << std::endl;
-	q4.print_header(4, "cross4");
-	q4.print(4);
 	exit(EXIT_SUCCESS);
 }
 
