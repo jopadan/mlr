@@ -83,7 +83,7 @@ int main(int argc, char** argv)
 - [CUDA C++ Programming Guide][25]
 ## Quake C++ Math Libraries
 - [TrenchBroom/vm][5]
-- [fakk2-sdk][21]
+- [a1batross/fakk2-sdk][21]
 - [Prey2006/neo/idlib/math][22]
 ## War for the Overworld C++ Math Library 
 - [CML][20]
