@@ -295,9 +295,9 @@ struct type : arr<T,N,A>
 };
 
 	/* quake vector types */
-	using vecf_t = f32;
-	using vecd_t = f64;
-	using vec_t = vecf_t;
+	using vecf_t  = f32;
+	using vecd_t  = f64;
+	using vec_t   = vecf_t;
 
 	using vec2_t  = vec::type<vec_t, 2>;
 	using vec3_t  = vec::type<vec_t, 3>;
