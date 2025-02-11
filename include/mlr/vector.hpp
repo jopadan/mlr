@@ -224,7 +224,7 @@ struct type : arr<T,N,A>
 	}
 	static inline constexpr T det4(const type<T,4> a, const type<T,4> b, const type<T,4> c, const type<T,4> d)
 	{
-		type<T,3> dst = (type<T,3>){ 1, -1, 1, -1 } * a * laplace4(b,c,d);
+		type<T,4> dst = (type<T,4>){ 1, -1, 1, -1 } * a * laplace4(b,c,d);
 		return dst[0] + dst[1] + dst[2] + dst[3];
 	}
 	/* laplace */
@@ -248,7 +248,7 @@ struct type : arr<T,N,A>
 	}
 	static inline constexpr type<T,3,align::vector> cross3(const type<T,3,align::vector> a, const type<T,3,align::vector> b)
 	{
-		return a.yzx() * b.zxy() - b.yzx() * a.zxy(); 
+		return a.yzx() * b.zxy() - b.yzx() * a.zxy();
 	}
 	static inline constexpr type<T,4> cross4(const type<T,4> a, const type<T,4> b, const type<T,4> c)
 	{
