@@ -248,7 +248,7 @@ struct type : arr<T,N,A>
 	}
 	static inline constexpr type<T,3,align::vector> cross3(const type<T,3,align::vector> a, const type<T,3,align::vector> b)
 	{
-		return (b.yzx() * a.xyz() - a.yzx() * b.xyz()).yzx();
+		return a.yzx() * b.zxy() - b.yzx() * a.zxy(); 
 	}
 	static inline constexpr type<T,4> cross4(const type<T,4> a, const type<T,4> b, const type<T,4> c)
 	{
