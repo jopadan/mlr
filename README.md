@@ -83,7 +83,7 @@ int main(int argc, char** argv)
 - [CUDA C++ Programming Guide][25]
 ## Quake C++ Math Libraries
 - [TrenchBroom/vm][5]
-- [fakk2-rework][21]
+- [fakk2-sdk][21]
 - [Prey2006/neo/idlib/math][22]
 ## War for the Overworld C++ Math Library 
 - [CML][20]
@@ -119,7 +119,7 @@ int main(int argc, char** argv)
 [18]: https://github.com/prideout/par/
 [19]: https://retrocomputing.stackexchange.com/questions/27400/what-is-the-most-accurate-way-to-map-6-bit-vga-palette-to-8-bit
 [20]: https://github.com/demianmnave/CML
-[21]: https://github.com/Sporesirius/fakk2-rework
+[21]: https://github.com/a1batross/fakk2-sdk
 [22]: https://github.com/FriskTheFallenHuman/Prey2006/blob/master/neo/idlib/math
 [23]: https://www.khronos.org/sycl/
 [24]: https://www.khronos.org/opencl/
