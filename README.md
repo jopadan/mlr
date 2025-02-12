@@ -83,6 +83,7 @@ int main(int argc, char** argv)
 - [CUDA C++ Programming Guide][25]
 ## Quake C++ Math Libraries
 - [TrenchBroom/vm][5]
+- [ericwa/ericw-tools][26]
 - [a1batross/fakk2-sdk][21]
 - [Prey2006/neo/idlib/math][22]
 ## War for the Overworld C++ Math Library 
@@ -102,6 +103,7 @@ int main(int argc, char** argv)
 [4]: https://github.com/jopadan/mlr/blob/main/include/mlr/vector.hpp
 
 [5]: https://github.com/TrenchBroom/TrenchBroom/tree/master/lib/vm
+[26]: https://github.com/ericwa/ericw-tools/blob/main/include/common/qvec.hh
 [6]: http://github.com/quakeforge/quakeforge/tree/master/include/QF/simd
 [7]: http://github.com/fte-team/fteqw
 
