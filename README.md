@@ -86,6 +86,7 @@ int main(int argc, char** argv)
 - [ericwa/ericw-tools][26]
 - [a1batross/fakk2-sdk][21]
 - [Prey2006/neo/idlib/math][22]
+- [andrei-drexler/q321][27]
 ## War for the Overworld C++ Math Library 
 - [CML][20]
 ## Math code/tutorials
@@ -104,8 +105,9 @@ int main(int argc, char** argv)
 
 [5]: https://github.com/TrenchBroom/TrenchBroom/tree/master/lib/vm
 [26]: https://github.com/ericwa/ericw-tools/blob/main/include/common/qvec.hh
-[6]: http://github.com/quakeforge/quakeforge/tree/master/include/QF/simd
-[7]: http://github.com/fte-team/fteqw
+[6]: https://github.com/quakeforge/quakeforge/tree/master/include/QF/simd
+[7]: https://github.com/fte-team/fteqw
+[27]: https://github.com/andrei-drexler/q321/blob/main/src/engine/math.h
 
 [8]: https://github.com/InsightSoftwareConsortium/ITK
 [9]: https://github.com/vxl/vxl/tree/master/core/vnl
