@@ -1,11 +1,12 @@
 #pragma once
 #include <mlr/scalar.hpp>
 
+
 namespace math
 {
 bool print_alignment = true;
 
-enum class align : uint8_t
+enum class align
 {
 	none     = 0 << 0,
 	scalar   = 1 << 0,
@@ -14,17 +15,8 @@ enum class align : uint8_t
 	adaptive = 1 << 3,
 };
 
-template<scalar T, size_t N,
-enum align A = (std::bit_ceil<size_t>(N) != N ?
-(uint8_t)align::scalar : (uint8_t)align::vector) |
-(uint8_t)align::adaptive,
-size_t N_POW2 = std::bit_ceil<size_t>(N)>
-struct alignas(
-(((N == N_POW2) && 
-!((uint8_t)A & (uint8_t)align::scalar)) ||
-  (uint8_t)A & (uint8_t)align::vector) ?
-N_POW2 * std::max<size_t>(alignof(T),sizeof(T)) :
-	 std::max<size_t>(alignof(T),sizeof(T)))
+template<typename T, size_t N, enum align A = align::adaptive, size_t N_POW2 = std::bit_ceil<size_t>(N)>
+struct alignas(((N == N_POW2) && A != align::scalar) || A == align::vector ? N_POW2 * alignof(T) : alignof(T))
 arr : std::array<T,N>
 {
 	size_t aligned_size() { return std::max<size_t>(alignof((*this)),(*this).size() * sizeof(T)); }
@@ -44,15 +36,23 @@ arr : std::array<T,N>
 	void print(size_t cnt = N)
 	{
 		std::cout << "|";
-
-		for(size_t i = 0; i < cnt; i++)
+		if(container<T>)
 		{
-			printf("%+-9.2e", (f64)(*this)[i]);
-			if(i != cnt - 1)
-				std::cout << " ";
-			if(i > (*this).size())
-				printf("%+-9.2e", NAN);
-				
+			for(size_t i = 0; i < cnt; i++)
+			{
+				printf("%9s", "container");
+				if(i < std::min<size_t>(cnt - 1, (*this).size()))
+					std::cout << " ";
+			}
+		}
+		else
+		{
+			for(size_t i = 0; i < cnt; i++)
+			{
+				printf("%+-9.2e", ((*this)[i]));
+				if(i < std::min<size_t>(cnt - 1, (*this).size()))
+					std::cout << " ";
+			}
 		}
 		std::cout << "|";
 		if(print_alignment)

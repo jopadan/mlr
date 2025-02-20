@@ -47,6 +47,12 @@ bool test()
 int main(int argc, char** argv)
 {
 	test();
+	arr<vec::f32<3>,3> vv = { vec::f32<3>{0,1,2},vec::f32<3>{3,4,5},vec::f32<3>{6,7,8} };
+	vv.print_header(3, "arr of vector");
+	vv.print(3);
+	vv[0].print(3);
+	vv[1].print(3);
+	vv[2].print(3);
 	exit(EXIT_SUCCESS);
 }
 

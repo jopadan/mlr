@@ -5,7 +5,7 @@ namespace math
 {
 namespace vec
 {
-template<scalar T = float, size_t N = 3, enum align A = align::adaptive>
+template<typename T = float, size_t N = 3, enum align A = align::adaptive>
 struct type : arr<T,N,A>
 {
 	/* alignment conversion operators */

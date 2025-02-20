@@ -85,6 +85,12 @@ template<scalar T>
 bool non_zero(T i) { return i != 0; }
 template<size_t N>
 concept power_of_two = (std::popcount(N) == 1);
+template<typename T>
+concept container = requires(T t)
+{
+	std::begin(t);
+	std::end(t);
+};
 
 /* quake scalar type */
 using qboolean        = b32enm;
