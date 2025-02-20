@@ -72,6 +72,7 @@ int main(int argc, char** argv)
 ```
 # Links
 ## Other C++ Math Libraries
+- [linalg][28]
 - [ITK][8]
 - [vxl/vnl][9]
 - [Terathon-Math-Library][10]
@@ -128,3 +129,4 @@ int main(int argc, char** argv)
 [23]: https://www.khronos.org/sycl/
 [24]: https://www.khronos.org/opencl/
 [25]: https://docs.nvidia.com/cuda/cuda-c-programming-guide/
+[28]: https://github.com/SideShowBoBGOT/linalg-conan
