@@ -56,13 +56,17 @@ int main(int argc, char** argv)
 	vv[2].print(3);
 
 	std::cout << std::endl;
-	col::u8<0,1,2,3> rgba32 = { 23, 123, 53, 222 };
+	col::f32<0,1,2,3> rgba32 = { 23.23f, 123.23f, 53.24f, 222.242f };
 	rgba32.print_header(4, "color RGBA32");
 	rgba32.print(4);
-
 	col::u8<0,1,2,3> rgba8888 = { 23, 123, 53, 222 };
 	rgba8888.print_header(4, "color RGBA8888");
 	rgba8888.print(4);
+
+	std::cout << std::endl;
+	col::f32<0,1,2> rgb32 = { 23.23f, 123.23f, 53.24f };
+	rgb32.print_header(3, "color RGB32");
+	rgb32.print(3);
 	col::u8<0,1,2> rgb888 = { 23, 123, 53 };
 	rgb888.print_header(3, "color RGB888");
 	rgb888.print(3);

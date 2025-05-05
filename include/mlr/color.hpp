@@ -22,14 +22,15 @@ namespace col
 	const static u8 B = 2;
 	const static u8 A = 3;
 
-	template<scalar T, u8... C> 
-	struct type : arr<T,sizeof...(C),align::adaptive>
+	template<scalar T, int... C> 
+	struct type : arr<T, sizeof...(C),align::adaptive>
 	{
 	};
 
-	template<u8... C>
+	template<int... C>
 	using u8 = type<u8, C...>;
-	template<u8... C>
+
+	template<int... C>
 	using f32 = type<f32, C...>;
 /*
 	template<std::array COLS, std::array BITS, size_t CHANNELS = COLS.size()>
