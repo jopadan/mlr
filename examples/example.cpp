@@ -56,6 +56,10 @@ int main(int argc, char** argv)
 	vv[2].print(3);
 
 	std::cout << std::endl;
+	col::u8<0,1,2,3> rgba32 = { 23, 123, 53, 222 };
+	rgba32.print_header(4, "color RGBA32");
+	rgba32.print(4);
+
 	col::u8<0,1,2,3> rgba8888 = { 23, 123, 53, 222 };
 	rgba8888.print_header(4, "color RGBA8888");
 	rgba8888.print(4);

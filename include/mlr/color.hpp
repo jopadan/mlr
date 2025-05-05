@@ -29,6 +29,8 @@ namespace col
 
 	template<u8... C>
 	using u8 = type<u8, C...>;
+	template<u8... C>
+	using f32 = type<f32, C...>;
 /*
 	template<std::array COLS, std::array BITS, size_t CHANNELS = COLS.size()>
 	struct bitfield : arr<T,1,align::scalar> requires (COLS.size() == BITS.size())
