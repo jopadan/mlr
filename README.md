@@ -28,6 +28,7 @@ add_compile_options(-march=native -mfpmath=[your SIMD instruction set] -O3)
 
 ```c++
 #include <mlr/vector.hpp>
+#include <mlr/color.hpp>
 
 using namespace math;
 
@@ -42,9 +43,9 @@ int main(int argc, char** argv)
     A[2].print_header(3, "cross3");
     A[2].print(3);
 
-	col::u8<0,1,2> rgb888 = { 23, 123, 53 };
-	rgb888.print_header(3, "color RGB888");
-	rgb888.print(3);
+    col::u8<0,1,2> rgb888 = { 23, 123, 53 };
+    rgb888.print_header(3, "color RGB888");
+    rgb888.print(3);
 
 	exit(EXIT_SUCCESS);
 }
