@@ -42,6 +42,10 @@ int main(int argc, char** argv)
     A[2].print_header(3, "cross3");
     A[2].print(3);
 
+	col::u8<0,1,2> rgb888 = { 23, 123, 53 };
+	rgb888.print_header(3, "color RGB888");
+	rgb888.print(3);
+
 	exit(EXIT_SUCCESS);
 }
 ```
@@ -68,6 +72,11 @@ int main(int argc, char** argv)
 |+0.00e+00 +1.00e+00 +1.00e+00|   4|  4| 12|  4|adaptive/scalar|3
 |+1.00e+00 +0.00e+00 +1.00e+00|   4|  4| 12|  4|         scalar|3
 |+1.00e+00 +1.00e+00 +0.00e+00|   4|  4| 16| 16|         vector|3
+
+|color RGBA8888                         | typ|alg|vec|alg|mode           |cnt
+|+23       +123      +53       +222     |   1|  1|  4|  4|adaptive/vector|4
+|color RGB888                 | typ|alg|vec|alg|mode           |cnt
+|+23       +123      +53      |   1|  1|  3|  1|adaptive/scalar|3
 ```
 # Links
 ## Other C++ Math Libraries
