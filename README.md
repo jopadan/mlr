@@ -47,7 +47,7 @@ int main(int argc, char** argv)
     rgb888.print_header(3, "color RGB888");
     rgb888.print(3);
 
-	exit(EXIT_SUCCESS);
+    exit(EXIT_SUCCESS);
 }
 ```
 ```fortran
