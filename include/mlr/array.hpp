@@ -49,7 +49,7 @@ arr : std::array<T,N>
 		{
 			for(size_t i = 0; i < cnt; i++)
 			{
-				printf("%+-9.2e", ((*this)[i]));
+				printf(std::floating_point<T> ? "%+-9.2e" : "%+-9d", ((*this)[i]));
 				if(i < std::min<size_t>(cnt - 1, (*this).size()))
 					std::cout << " ";
 			}

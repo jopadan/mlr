@@ -93,6 +93,7 @@ concept container = requires(T t)
 	std::begin(t);
 	std::end(t);
 };
+
 namespace id
 {
 /* quake scalar type */

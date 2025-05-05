@@ -1,4 +1,5 @@
 #include <mlr/vector.hpp>
+#include <mlr/color.hpp>
 
 using namespace math;
 
@@ -53,6 +54,14 @@ int main(int argc, char** argv)
 	vv[0].print(3);
 	vv[1].print(3);
 	vv[2].print(3);
+
+	std::cout << std::endl;
+	col::u8<0,1,2,3> rgba8888 = { 23, 123, 53, 222 };
+	rgba8888.print_header(4, "color RGBA8888");
+	rgba8888.print(4);
+	col::u8<0,1,2> rgb888 = { 23, 123, 53 };
+	rgb888.print_header(3, "color RGB888");
+	rgb888.print(3);
 	exit(EXIT_SUCCESS);
 }
 
