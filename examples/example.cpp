@@ -8,7 +8,7 @@ bool test()
 	                      vec::f32<4>::identity(1),
 			      vec::f32<4>::load3(vec::f32<3, align::vector>::cross3(v1[0],v1[1]).data(),0),
 			      vec::f32<2>::cross4(v1[0],v1[1],v1[2]) };
-	vec::f32<2> v2[2] = { vec::f32<2>::cross2(v1[0], GL_CCW), vec::f32<2>::cross2(v1[0], GL_CW) };
+	vec::f32<2> v2[2] = { vec::f32<2>::cross2(v1[0], MLR_CCW), vec::f32<2>::cross2(v1[0], MLR_CW) };
 	v1[0].print_header(4, "vector");
 	v1[0].print(4);
 	v1[1].print(4);
@@ -17,7 +17,7 @@ bool test()
 	v1[3].print_header(4, "cross4");
 	v1[3].print(4);
 	vec::f32<4> v3 = v2[0];
-	v3.print_header(4, "cross2 GL_CCW/GL_CW");
+	v3.print_header(4, "cross2 MLR_CCW/MLR_CW");
 	v3.print(4);
 	v3 = { vec::f32<4>::dot4(v1[0],v1[1],v1[2],v2[3]) };
 	v3.print_header(4, "dot4");

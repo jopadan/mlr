@@ -242,7 +242,7 @@ struct type : arr<T,N,A>
 		                    det3(a.xyz(), b.xyz(), c.xyz()) };
 	}
 	/* type products hodge/cross/laplace */
-	static inline constexpr type<T,2> cross2(const type<T,2> src, unsigned int winding = GL_CCW)
+	static inline constexpr type<T,2> cross2(const type<T,2> src, unsigned int winding = MLR_CCW)
 	{
 		return identity().negate(2,1 - (winding % 2)) * src.swap2();
 	}

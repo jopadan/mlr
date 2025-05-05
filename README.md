@@ -4,12 +4,11 @@ mlr - single-header-only [C++26][1] linear algebra math library
 
 ## About
 
-mlr implements aligned array [arr : std::array<T,N>][3] based vector [vec::type<T,N,A>][4] type for N-dimensional linear algebra math using [OpenGL/KHR][2] providing a base compatibility type interface for Quake C++ vec_t based types.
+mlr implements aligned array [arr : std::array<T,N>][3] based vector [vec::type<T,N,A>][4] type for N-dimensional linear algebra math and Quake C++ vec_t type interface.
 
 # Dependencies
 
 - [C++26][1]
-- [OpenGL/KHR][2]
 
 ## Building
 
@@ -54,7 +53,7 @@ int main(int argc, char** argv)
 |+0.00e+00 +0.00e+00 +1.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/vector|4
 |cross4                                 | typ|alg|vec|alg|mode           |cnt
 |-0.00e+00 +0.00e+00 -0.00e+00 +1.00e+00|   4|  4| 16| 16|adaptive/vector|4
-|cross2 GL_CCW/GL_CW                    | typ|alg|vec|alg|mode           |cnt
+|cross2 MLR_CCW/MLR_CW                  | typ|alg|vec|alg|mode           |cnt
 |-0.00e+00 +1.00e+00 +0.00e+00 -1.00e+00|   4|  4| 16| 16|adaptive/vector|4
 |dot4                                   | typ|alg|vec|alg|mode           |cnt
 |+0.00e+00 +0.00e+00 +0.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/vector|4
@@ -79,6 +78,7 @@ int main(int argc, char** argv)
 - [mr-math][11]
 - [versor][12]
 ## Other OpenCL/SYCL/CUDA linear algebra vector type implementations
+- [OpenGL/KHR][2]
 - [SYCL Overview][23]
 - [OpenCL][24]
 - [CUDA C++ Programming Guide][25]
