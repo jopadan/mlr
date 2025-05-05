@@ -10,6 +10,8 @@ if( NOT CMAKE_BUILD_TYPE )
 endif()
 set( CMAKE_CXX_STANDARD 23 )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
+set( CMAKE_CXX_EXTENSIONS GNU )
+
 add_compile_options(-march=native -O3 -mfpmath=sse -g)
 add_compile_options(-D_FILE_OFFSET_BITS=64)
 add_compile_options(-fdata-sections)

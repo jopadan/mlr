@@ -1,6 +1,6 @@
 # mlr
 
-mlr - single-header-only [C++26][1] linear algebra math library
+mlr - single-header-only [C++23][1] linear algebra math library
 
 ## About
 
@@ -8,7 +8,7 @@ mlr implements aligned array [arr : std::array<T,N>][3] based vector [vec::type<
 
 # Dependencies
 
-- [C++26][1]
+- [C++23][1]
 
 ## Building
 
