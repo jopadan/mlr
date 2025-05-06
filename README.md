@@ -56,6 +56,7 @@ int main(int argc, char** argv)
     col::f32<{B,G,R,A          }> BGRAF32      = {1,2,3,4}; // array    type
 
     col::u16<{R,G,B  },{5,6,5  }> RGB565       = {1,2,3  }; // bitfield type
+    col::u16<{R,G,B,A},{5,5,5,1}> RGBA5551     = {1,2,3,4}; // bitfield type
     col::u16<{R,G,B,A},{4,4,4,4}> RGBA4444     = {1,2,3,4}; // bitfield type
 
     col::u8 <{R,G,B  },{2,4,2  }> RGB242       = {1,2,3  }; // bitfield type
