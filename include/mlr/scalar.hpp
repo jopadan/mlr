@@ -94,6 +94,14 @@ concept container = requires(T t)
 	std::end(t);
 };
 
+enum channel
+{
+	R = 0,
+	G = 1, 
+	B = 2,
+	A = 3,
+};
+
 namespace id
 {
 /* quake scalar type */

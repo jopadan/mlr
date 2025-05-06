@@ -55,21 +55,27 @@ int main(int argc, char** argv)
 	vv[1].print(3);
 	vv[2].print(3);
 
-	std::cout << std::endl;
-	col::f32<0,1,2,3> rgba32 = { 23.23f, 123.23f, 53.24f, 222.242f };
-	rgba32.print_header(4, "color RGBA32");
-	rgba32.print(4);
-	col::u8<0,1,2,3> rgba8888 = { 23, 123, 53, 222 };
-	rgba8888.print_header(4, "color RGBA8888");
-	rgba8888.print(4);
+	col::u8 <{R,G,B            }> RGB888       = {1,2,3  }; // array    type
+	col::u8 <{R,G,B,A          }> RGBA8888     = {1,2,3,4}; // array    type
+	col::u8 <{B,G,R,A          }> BGRA8888     = {1,2,3,4}; // array    type
+	col::u8 <{A,R,G,B          }> ARGB8888     = {1,2,3,4}; // array    type
+	col::u8 <{A,B,G,R          }> ABGR8888     = {1,2,3,4}; // array    type
 
-	std::cout << std::endl;
-	col::f32<0,1,2> rgb32 = { 23.23f, 123.23f, 53.24f };
-	rgb32.print_header(3, "color RGB32");
-	rgb32.print(3);
-	col::u8<0,1,2> rgb888 = { 23, 123, 53 };
-	rgb888.print_header(3, "color RGB888");
-	rgb888.print(3);
+	col::f32<{R,G,B            }> RGB32        = {1,2,3  }; // array    type
+	col::f32<{R,G,B,A          }> RGBA32       = {1,2,3,4}; // array    type
+	col::f32<{A,R,G,B          }> ARGB32       = {1,2,3,4}; // array    type
+	col::f32<{A,B,G,R          }> ABGR32       = {1,2,3,4}; // array    type
+	col::f32<{B,G,R,A          }> BGRA32       = {1,2,3,4}; // array    type
+
+	col::u16<{R,G,B  },{5,6,5  }> RGB565       = {1,2,3  }; // bitfield type
+	col::u16<{R,G,B,A},{4,4,4,4}> RGBA4444     = {1,2,3,4}; // bitfield type
+
+	col::u8 <{R,G,B  },{2,4,2  }> RGB242       = {1,2,3  }; // bitfield type
+	col::u8 <{R,G,B,A},{2,2,2,2}> RGBA2222     = {1,2,3,0}; // bitfield type
+
+	col::u16<{R,G,B            }> RGB161616    = {1,2,3  }; // array    type
+	col::u16<{R,G,B,A          }> RGBA16161616 = {1,2,3,4}; // array    type
+
 	exit(EXIT_SUCCESS);
 }
 

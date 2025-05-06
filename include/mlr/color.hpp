@@ -1,51 +1,80 @@
 #pragma once
 
-#include <mlr/vector.hpp>
+#include <bitset>
+#include <optional>
+#include <cstddef>
+#include <cstdint>
+#include <array>
+#include <iostream>
+#include <bit>
 
+#include <mlr/scalar.hpp>
+#include <mlr/array.hpp>
+
+/* 
+ * color type interface abstraction intended example usage style
+ *
+ * col::u16<{R,G,B            }> RGB161616    = {1,2,3  }; // array    type
+ * col::u16<{R,G,B,A          }> RGBA16161616 = {1,2,3,4}; // array    type
+ * col::u16<{R,G,B  },{5,6,5  }> RGB565       = {1,2,3  }; // bitfield type
+ * col::u16<{R,G,B,A},{4,4,4,4}> RGBA4444     = {1,2,3,4}; // bitfield type
+ *
+ * col::u8 <{R,G,B            }> RGB888       = {1,2,3  }; // array    type
+ * col::u8 <{R,G,B,A          }> RGBA8888     = {1,2,3,4}; // array    type
+ * col::u8 <{R,G,B  },{2,4,2  }> RGB242       = {1,2,3  }; // bitfield type
+ * col::u8 <{R,G,B,A},{2,2,2,2}> RGBA2222     = {1,2,3,4}; // bitfield type
+ *
+ */
 namespace math
 {
+namespace col
+{
+
+template<typename T, std::array COLS, std::array BITS>
+struct alignas(alignof(T)) bf4
+{
+	T r : BITS[0];
+	T g : BITS[1];
+	T b : BITS[2];
+	T a : BITS[3];
+	void print() { std::cout << BITS.size() << std::endl; }
+};
+
+template<typename T, std::array COLS, std::array BITS>
+struct alignas(alignof(T)) bf3
+{
+	T r : BITS[0];
+	T g : BITS[1];
+	T b : BITS[2];
+	void print() { std::cout << BITS.size() << std::endl; }
+};
+
+template<typename T, std::array COLS, std::array BITS> requires(COLS.size() == BITS.size())
+using bitfield = std::conditional_t<(COLS.size() > 3), bf4<T,COLS,BITS>, bf3<T,COLS,BITS>>;
+
+template<typename T, std::array COLS>
+struct alignas(std::bit_ceil<size_t>(COLS.size()) == COLS.size() ? COLS.size() * alignof(T) : alignof(T)) array : std::array<T, COLS.size()>
+{
+};
+
+template<std::array COLS, std::array BITS = std::array<int,COLS.size()>{0}>
+using u16 = std::conditional_t<(BITS[0] == 0), array<math::u16,COLS>, bitfield<math::u16, COLS, BITS>>;
+
+template<std::array COLS, std::array BITS = std::array<int,COLS.size()>{0}>
+using u8 = std::conditional_t<(BITS[0] == 0), array<math::u8,COLS>, bitfield<math::u8, COLS, BITS>>;
+
+template<std::array COLS, std::array BITS = std::array<int,COLS.size()>{0}>
+using f32 = array<math::f32,COLS>;
 
 namespace id
 {
 	/* quake color */
 	union color4ub_t
 	{
-		vec::type<u8,4> rgba;
-		uint32_t u32;
+		vec::type<math::u8,4> rgba;
+		math::u32 u32;
 	};
 };
 
-namespace col
-{
-	const static u8 R = 0;
-	const static u8 G = 1;
-	const static u8 B = 2;
-	const static u8 A = 3;
-
-	template<scalar T, int... C> 
-	struct type : arr<T, sizeof...(C),align::adaptive>
-	{
-	};
-
-	template<int... C>
-	using u8 = type<u8, C...>;
-
-	template<int... C>
-	using f32 = type<f32, C...>;
-/*
-	template<std::array COLS, std::array BITS, size_t CHANNELS = COLS.size()>
-	struct bitfield : arr<T,1,align::scalar> requires (COLS.size() == BITS.size())
-	{
-		const static size_t storage_size = std::accumulate(BITS.begin(), BITS.end(), 0);
-		const static std::array<u8,4> SHIFT = { 0, BITS[0], BITS[0] + BITS[1], BITS[0] + BITS[1] + BITS[2]};
-		const static std::array<T,4> MASK = { BITS[0] - 1, BITS[1] - 1, BITS[2] - 2, BITS[3] - 1};
-		using storage_type = std::make_unsigned_t<__int_with_sizeof_t<storage_size/8>>;
-		using channel_type = std::make_unsigned_t<__int_with_sizeof_t<std::bit_ceil((unsigned)*std::max_element(BITS.begin(), BITS.end()))/8>>;
-		constexpr CHANNEL_TYPE r() requires(BITS[COLS[R]] > 0) { return CHANNEL_TYPE(front() >> SHIFT[COLS[R]] & MASK[COLS[R]]); }
-		constexpr CHANNEL_TYPE g() requires(BITS[COLS[G]] > 0) { return CHANNEL_TYPE(front() >> SHIFT[COLS[G]] & MASK[COLS[G]]); }
-		constexpr CHANNEL_TYPE b() requires(BITS[COLS[B]] > 0) { return CHANNEL_TYPE(front() >> SHIFT[COLS[B]] & MASK[COLS[B]]); }
-		constexpr CHANNEL_TYPE a() requires(BITS[COLS[A]] > 0) { return CHANNEL_TYPE(front() >> SHIFT[COLS[A]] & MASK[COLS[A]]); } 
-	};
-*/
 };
 };

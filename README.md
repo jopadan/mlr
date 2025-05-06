@@ -43,9 +43,28 @@ int main(int argc, char** argv)
     A[2].print_header(3, "cross3");
     A[2].print(3);
 
-    col::u8<0,1,2> rgb888 = { 23, 123, 53 };
-    rgb888.print_header(3, "color RGB888");
-    rgb888.print(3);
+    using namespace math::col;
+
+	u8 <{R,G,B            }> RGB888       = {1,2,3  }; // array    type
+	u8 <{R,G,B,A          }> RGBA8888     = {1,2,3,4}; // array    type
+	u8 <{B,G,R,A          }> BGRA8888     = {1,2,3,4}; // array    type
+	u8 <{A,R,G,B          }> ARGB8888     = {1,2,3,4}; // array    type
+	u8 <{A,B,G,R          }> ABGR8888     = {1,2,3,4}; // array    type
+
+	f32<{R,G,B            }> RGB32        = {1,2,3  }; // array    type
+	f32<{R,G,B,A          }> RGBA32       = {1,2,3,4}; // array    type
+	f32<{A,R,G,B          }> ARGB32       = {1,2,3,4}; // array    type
+	f32<{A,B,G,R          }> ABGR32       = {1,2,3,4}; // array    type
+	f32<{B,G,R,A          }> BGRA32       = {1,2,3,4}; // array    type
+
+	u16<{R,G,B  },{5,6,5  }> RGB565       = {1,2,3  }; // bitfield type
+	u16<{R,G,B,A},{4,4,4,4}> RGBA4444     = {1,2,3,4}; // bitfield type
+
+	u8 <{R,G,B  },{2,4,2  }> RGB242       = {1,2,3  }; // bitfield type
+	u8 <{R,G,B,A},{2,2,2,2}> RGBA2222     = {1,2,3,4}; // bitfield type
+
+	u16<{R,G,B            }> RGB161616    = {1,2,3  }; // array    type
+	u16<{R,G,B,A          }> RGBA16161616 = {1,2,3,4}; // array    type
 
     exit(EXIT_SUCCESS);
 }
