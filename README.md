@@ -49,11 +49,11 @@ int main(int argc, char** argv)
     col::u8 <{A,R,G,B          }> ARGB8888     = {1,2,3,4}; // array    type
     col::u8 <{A,B,G,R          }> ABGR8888     = {1,2,3,4}; // array    type
 
-    col::f32<{R,G,B            }> RGB32        = {1,2,3  }; // array    type
-    col::f32<{R,G,B,A          }> RGBA32       = {1,2,3,4}; // array    type
-    col::f32<{A,R,G,B          }> ARGB32       = {1,2,3,4}; // array    type
-    col::f32<{A,B,G,R          }> ABGR32       = {1,2,3,4}; // array    type
-    col::f32<{B,G,R,A          }> BGRA32       = {1,2,3,4}; // array    type
+    col::f32<{R,G,B            }> RGBF32       = {1,2,3  }; // array    type
+    col::f32<{R,G,B,A          }> RGBAF32      = {1,2,3,4}; // array    type
+    col::f32<{A,R,G,B          }> ARGBF32      = {1,2,3,4}; // array    type
+    col::f32<{A,B,G,R          }> ABGRF32      = {1,2,3,4}; // array    type
+    col::f32<{B,G,R,A          }> BGRAF32      = {1,2,3,4}; // array    type
 
     col::u16<{R,G,B  },{5,6,5  }> RGB565       = {1,2,3  }; // bitfield type
     col::u16<{R,G,B,A},{4,4,4,4}> RGBA4444     = {1,2,3,4}; // bitfield type
