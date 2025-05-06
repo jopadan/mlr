@@ -61,7 +61,7 @@ template<std::array COLS, std::array BITS = std::array<int,COLS.size()>{0}>
 using u16 = std::conditional_t<(BITS[0] == 0), array<math::u16,COLS>, bitfield<math::u16, COLS, BITS>>;
 
 template<std::array COLS, std::array BITS = std::array<int,COLS.size()>{0}>
-using u8  = std::conditional_t<(BITS[0] == 0), array<math::u8,COLS>, bitfield<math::u8, COLS, BITS>>;
+using u8  = std::conditional_t<(BITS[0] == 0), array<math::u8 ,COLS>, bitfield<math::u8 , COLS, BITS>>;
 
 template<std::array COLS, std::array BITS = std::array<int,COLS.size()>{0}>
 using f32 = array<math::f32,COLS>;
