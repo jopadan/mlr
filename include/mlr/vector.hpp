@@ -1,6 +1,7 @@
 #pragma once
 
 #include <mlr/array.hpp>
+
 namespace math
 {
 namespace vec
@@ -117,25 +118,29 @@ struct type : arr<T,N,A>
 	}
 	friend inline constexpr type<T,N,A> operator+(const type<T,N,A> lhs, const T rhs)
 	{
-		type<T,N,A> dst = fill(rhs);
+		type<T,N,A> dst;
+		dst.fill(rhs);
 		std::transform(lhs.cbegin(), lhs.cend(), dst.cbegin(), dst.begin(), std::plus<>{});
 		return dst;
 	}
 	friend inline constexpr type<T,N,A> operator-(const type<T,N,A> lhs, const T rhs)
 	{
-		type<T,N,A> dst = fill(rhs);
+		type<T,N,A> dst;
+		dst.fill(rhs);
 		std::transform(lhs.cbegin(), lhs.cend(), dst.cbegin(), dst.begin(), std::minus<>{});
 		return dst;
 	}
 	friend inline constexpr type<T,N,A> operator*(const type<T,N,A> lhs, const T rhs)
 	{
-		type<T,N,A> dst = fill(rhs);
+		type<T,N,A> dst;
+		dst.fill(rhs);
 		std::transform(lhs.cbegin(), lhs.cend(), dst.cbegin(), dst.begin(), std::multiplies<>{});
 		return dst;
 	}
 	friend inline constexpr type<T,N,A> operator/(const type<T,N,A> lhs, const T rhs)
 	{
-		type<T,N,A> dst = fill(rhs);
+		type<T,N,A> dst;
+		dst.fill(rhs);
 		std::transform(lhs.cbegin(), lhs.cend(), dst.cbegin(), dst.begin(), std::divides<>{});
 		return dst;
 	}
