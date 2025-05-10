@@ -68,8 +68,9 @@ int main(int argc, char** argv)
 	col::f32<{B,G,R,A          }> BGRAF32      = {1,2,3,4}; // array    type
 
 	col::u16<{R,G,B  },{5,6,5  }> RGB565       = {10,32,20};   // bitfield type
+	col::u16<{B,G,R  },{5,6,5  }> BGR565       = {10,32,20};   // bitfield type
 	col::u16<{R,G,B,A},{5,5,5,1}> RGBA5551     = {10,15,20,1}; // bitfield type
-	col::u16<{R,G,B,A},{4,4,4,4}> RGBA4444     = {5,8,12,15};   // bitfield type
+	col::u16<{R,G,B,A},{4,4,4,4}> RGBA4444     = {5,8,12,15};  // bitfield type
 
 	col::u8 <{R,G,B  },{2,4,2  }> RGB242       = {1,2,3  }; // bitfield type
 	col::u8 <{R,G,B,A},{2,2,2,2}> RGBA2222     = {1,2,3,0}; // bitfield type
@@ -81,10 +82,16 @@ int main(int argc, char** argv)
 	col::u8<{R,G,B}>   dst0 = (col::u8<{R,G,B}>)RGB565;
 	dst0.print_header(4, "bitfield->vector colors");
 	dst0.print(4);
-	col::u8<{R,G,B,A}> dst1 = (col::u8<{R,G,B,A}>)RGBA4444;
+	col::u8<{B,G,R}>   dst3 = (col::u8<{B,G,R}>)RGB565;
+	dst3.print(4);
+	col::u8<math::col::argb> dst4 = (col::u8<math::col::argb>)RGBA4444;
+	dst4.print(4);
+	col::u8<math::col::rgba> dst1 = (col::u8<math::col::rgba>)RGBA4444;
 	dst1.print(4);
-	col::f32<{R,G,B,A}> dst2 = (col::f32<{R,G,B,A}>)RGBA5551;
+	col::f32<math::col::rgba> dst5 = (col::f32<math::col::rgba>)RGBA5551;
+	col::f32<math::col::abgr> dst2 = (col::f32<math::col::abgr>)RGBA5551;
 	dst2.print(4);
+	dst5.print(4);
 	exit(EXIT_SUCCESS);
 }
 
