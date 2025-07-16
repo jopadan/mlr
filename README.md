@@ -120,6 +120,8 @@ int main(int argc, char** argv)
 ## War for the Overworld C++ Math Library 
 - [CML][20]
 ## Math code/tutorials
+- [Let's remove Quaternions from every 3D Engine][31]
+- [Rotors: A practical introduction for 3D graphics][30]
 - [Permutation][13]
 - [Parity Theorem for Permutations][14]
 - [Levi-Civita symbol][15]
@@ -160,3 +162,5 @@ int main(int argc, char** argv)
 [24]: https://www.khronos.org/opencl/
 [25]: https://docs.nvidia.com/cuda/cuda-c-programming-guide/
 [28]: https://github.com/SideShowBoBGOT/linalg-conan
+[30]: https://jacquesheunis.com/post/rotors/
+[31]: https://marctenbosch.com/quaternions/
