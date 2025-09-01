@@ -101,6 +101,7 @@ int main(int argc, char** argv)
 ## Other C++ Math Libraries
 - [ctmd][32]
 - [linalg][28]
+- [glm][35]
 - [ITK][8]
 - [vxl/vnl][9]
 - [Terathon-Math-Library][10]
@@ -170,3 +171,4 @@ int main(int argc, char** argv)
 [32]: https://github.com/uomrobotic/ctmd/
 [33]: https://github.com/NVIDIA/cutlass/
 [34]: https://github.com/jfalcou/eve/
+[35]: https://github.com/g-truc/glm/
