@@ -109,6 +109,7 @@ int main(int argc, char** argv)
 - [versor][12]
 - [cutlass][33]
 - [eve][34]
+- [nicemath][36]
 ## Other OpenCL/SYCL/CUDA linear algebra vector type implementations
 - [OpenGL/KHR][2]
 - [SYCL Overview][23]
@@ -172,3 +173,4 @@ int main(int argc, char** argv)
 [33]: https://github.com/NVIDIA/cutlass/
 [34]: https://github.com/jfalcou/eve/
 [35]: https://github.com/g-truc/glm/
+[36]: https://github.com/nicebyte/nicemath/
