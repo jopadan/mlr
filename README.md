@@ -106,6 +106,7 @@ int main(int argc, char** argv)
 - [Terathon-Math-Library][10]
 - [mr-math][11]
 - [versor][12]
+- [cutlass][33]
 ## Other OpenCL/SYCL/CUDA linear algebra vector type implementations
 - [OpenGL/KHR][2]
 - [SYCL Overview][23]
@@ -165,4 +166,5 @@ int main(int argc, char** argv)
 [28]: https://github.com/SideShowBoBGOT/linalg-conan
 [30]: https://jacquesheunis.com/post/rotors/
 [31]: https://marctenbosch.com/quaternions/
-[32]: https://github.com/uomrobotic/ctmd
+[32]: https://github.com/uomrobotic/ctmd/
+[33]: https://github.com/NVIDIA/cutlass/
