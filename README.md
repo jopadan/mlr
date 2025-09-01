@@ -99,6 +99,7 @@ int main(int argc, char** argv)
 ```
 # Links
 ## Other C++ Math Libraries
+- [ctmd][32]
 - [linalg][28]
 - [ITK][8]
 - [vxl/vnl][9]
@@ -164,3 +165,4 @@ int main(int argc, char** argv)
 [28]: https://github.com/SideShowBoBGOT/linalg-conan
 [30]: https://jacquesheunis.com/post/rotors/
 [31]: https://marctenbosch.com/quaternions/
+[32]: https://github.com/uomrobotic/ctmd
