@@ -123,6 +123,7 @@ int main(int argc, char** argv)
 - [SYCL Overview][23]
 - [OpenCL][24]
 - [CUDA C++ Programming Guide][25]
+- [kokkos][37]
 ## Quake C++ Math Libraries
 - [TrenchBroom/vm][5]
 - [ericwa/ericw-tools][26]
@@ -182,3 +183,4 @@ int main(int argc, char** argv)
 [34]: https://github.com/jfalcou/eve/
 [35]: https://github.com/g-truc/glm/
 [36]: https://github.com/nicebyte/nicemath/
+[37]: https://github.com/kokkos/kokkos/
