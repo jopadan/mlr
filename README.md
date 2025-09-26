@@ -34,35 +34,25 @@ using namespace math;
 
 int main(int argc, char** argv)
 {
-	buf::type<vec::f32<3>,3> vv = { vec::f32<3>{0,1,2},vec::f32<3>{3,4,5},vec::f32<3>{6,7,8} };
-	vv.print_header(3, "arr of vector");
-	vv.print(3);
-	vv[0].print(3);
-	vv[1].print(3);
-	vv[2].print(3);
+    /* aligned buffer */
+    buf::f32<3,align::linear> b = {0,1,2};
+    /* aligned vector */
+    vec::f32<3,align::linear> v = {0,1,2};
+    /* 3x3 matrix aligned to 3x4 */
+    mat::f32<3,3,align::linear> A = {v,v,v};
+    /* 3x3 matrix aligned to 4x4 */
+    mat::f32<3,3,align::matrix> B = {v,v,v};
 
-	col::u8 <{R,G,B            }> RGB888       = {1,2,3  }; // array    type
-	col::u8 <{R,G,B,A          }> RGBA8888     = {1,2,3,4}; // array    type
-	col::u8 <{B,G,R,A          }> BGRA8888     = {1,2,3,4}; // array    type
-	col::u8 <{A,R,G,B          }> ARGB8888     = {1,2,3,4}; // array    type
-	col::u8 <{A,B,G,R          }> ABGR8888     = {1,2,3,4}; // array    type
+    /* 16-bit bitfield color types */
+	col::u16<{R,G,B}  ,{5,6,5  }>   RGB565 = {10,32,20};
+	col::u16<{R,G,B,A},{4,4,4,4}>   RGB565 = {10,32,20};
 
-	col::f32<{R,G,B            }> RGBF32       = {1,2,3  }; // array    type
-	col::f32<{R,G,B,A          }> RGBAF32      = {1,2,3,4}; // array    type
-	col::f32<{A,R,G,B          }> ARGBF32      = {1,2,3,4}; // array    type
-	col::f32<{A,B,G,R          }> ABGRF32      = {1,2,3,4}; // array    type
-	col::f32<{B,G,R,A          }> BGRAF32      = {1,2,3,4}; // array    type
-
-	col::u16<{R,G,B  },{5,6,5  }> RGB565       = {10,32,20};   // bitfield type
-	col::u16<{B,G,R  },{5,6,5  }> BGR565       = {10,32,20};   // bitfield type
-	col::u16<{R,G,B,A},{5,5,5,1}> RGBA5551     = {10,15,20,1}; // bitfield type
-	col::u16<{R,G,B,A},{4,4,4,4}> RGBA4444     = {5,8,12,15};  // bitfield type
-
-	col::u8 <{R,G,B  },{2,4,2  }> RGB242       = {1,2,3  }; // bitfield type
-	col::u8 <{R,G,B,A},{2,2,2,2}> RGBA2222     = {1,2,3,0}; // bitfield type
-
-	col::u16<{R,G,B            }> RGB161616    = {1,2,3  }; // array    type
-	col::u16<{R,G,B,A          }> RGBA16161616 = {1,2,3,4}; // array    type
+    /* standard array color types */
+	col::u8 <{R,G,B}>               RGB888         = {1,2,3  };
+	col::u8 <{R,G,B},align::linear> ALIGNED_RGB888 = {1,2,3  };
+	col::u8 <{R,G,B,A}>             RGBA8888       = {1,2,3,4};
+	col::f32<{R,G,B}>               RGBF32         = {1,2,3  };
+	col::f32<{R,G,B},align::linear> ALIGNED_RGBF32 = {1,2,3  };
 
     exit(EXIT_SUCCESS);
 }

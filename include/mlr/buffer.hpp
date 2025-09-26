@@ -26,8 +26,7 @@ enum class align
 namespace buf
 {
 template<typename T, size_t N, enum align A = align::adaptive, size_t N_POW2 = std::bit_ceil<size_t>(N), size_t T_S = std::min<size_t>(alignof(T), sizeof(T))>
-struct alignas((((N == N_POW2) && A != align::scalar) || ((A == align::linear) || (A == align::matrix))) ? N_POW2 * T_S : T_S)
-type : std::array<T,N>
+struct alignas((((N == N_POW2) && A != align::scalar) || ((A == align::linear) || (A == align::matrix))) ? N_POW2 * T_S : T_S) type : std::array<T,N>
 {
 	constexpr size_t aligned_size() { return std::max<size_t>(alignof((*this)),(*this).size() * sizeof(T)); }
 	static constexpr void print_header(size_t cnt = N, const char* description = "")
