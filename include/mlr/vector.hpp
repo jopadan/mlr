@@ -1,6 +1,6 @@
 #pragma once
 
-#include <mlr/array.hpp>
+#include <mlr/buffer.hpp>
 
 namespace math
 {

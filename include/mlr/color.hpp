@@ -9,7 +9,7 @@
 #include <bit>
 
 #include <mlr/scalar.hpp>
-#include <mlr/array.hpp>
+#include <mlr/buffer.hpp>
 
 /* 
  * color type interface abstraction intended example usage style
