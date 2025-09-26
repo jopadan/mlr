@@ -7,7 +7,7 @@ namespace math
 namespace vec
 {
 template<typename T = float, size_t N = 3, enum align A = align::adaptive>
-struct type : arr<T,N,A>
+struct type : buf::type<T,N,A>
 {
 	/* alignment conversion operators */
 	template<size_t N_LHS, enum align A_RHS = align::adaptive>
@@ -251,7 +251,7 @@ struct type : arr<T,N,A>
 	{
 		return identity().negate(2,1 - (winding % 2)) * src.swap2();
 	}
-	static inline constexpr type<T,3,align::vector> cross3(const type<T,3,align::vector> a, const type<T,3,align::vector> b)
+	static inline constexpr type<T,3,align::linear> cross3(const type<T,3,align::linear> a, const type<T,3,align::linear> b)
 	{
 		return a.yzx() * b.zxy() - b.yzx() * a.zxy();
 	}
@@ -314,8 +314,8 @@ struct type : arr<T,N,A>
 
 	using vec2_t  = vec::type<vec_t, 2>;
 	using vec3_t  = vec::type<vec_t, 3>;
-	using avec3_t = vec::type<vec_t, 3, align::vector>;
+	using avec3_t = vec::type<vec_t, 3, align::linear>;
 	using vec4_t  = vec::type<vec_t, 4>;
 	using vec5_t  = vec::type<vec_t, 5>;
-	using avec5_t = vec::type<vec_t, 5, align::vector>;
+	using avec5_t = vec::type<vec_t, 5, align::linear>;
 };

@@ -7,7 +7,7 @@ bool test()
 {
 	vec::f32<4> v1[4] = { vec::f32<4>::identity(0),
 	                      vec::f32<4>::identity(1),
-			      vec::f32<4>::load3(vec::f32<3, align::vector>::cross3(v1[0],v1[1]).data(),0),
+			      vec::f32<4>::load3(vec::f32<3, align::linear>::cross3(v1[0],v1[1]).data(),0),
 			      vec::f32<2>::cross4(v1[0],v1[1],v1[2]) };
 	vec::f32<2> v2[2] = { vec::f32<2>::cross2(v1[0], MLR_CCW), vec::f32<2>::cross2(v1[0], MLR_CW) };
 	v1[0].print_header(4, "vector");
@@ -30,7 +30,7 @@ bool test()
 	v3.print_header(3, "vector");
 	vec::f32<3>                v4 = { 1,0,0 };
 	vec::f32<3, align::scalar> v5 = { 0,1,0 };
-	vec::f32<3, align::vector> v6 = { 0,0,1 };
+	vec::f32<3, align::linear> v6 = { 0,0,1 };
 	v4.print(3);
 	v5.print(3);
 	v6.print(3);
@@ -39,7 +39,7 @@ bool test()
 	v7.print(3);
 	vec::f32<3, align::scalar> v8 = v4 + v6;
 	v8.print(3);
-	vec::f32<3, align::vector> v9 = v4 + v5;
+	vec::f32<3, align::linear> v9 = v4 + v5;
 	v9.print(3);
 	std::cout << std::endl;
 	return true;
@@ -48,8 +48,8 @@ bool test()
 int main(int argc, char** argv)
 {
 	test();
-	arr<vec::f32<3>,3> vv = { vec::f32<3>{0,1,2},vec::f32<3>{3,4,5},vec::f32<3>{6,7,8} };
-	vv.print_header(3, "arr of vector");
+	buf::type<vec::f32<3>,3> vv = { vec::f32<3>{0,1,2},vec::f32<3>{3,4,5},vec::f32<3>{6,7,8} };
+	vv.print_header(3, "array of vector");
 	vv.print(3);
 	vv[0].print(3);
 	vv[1].print(3);

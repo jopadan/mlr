@@ -34,68 +34,76 @@ using namespace math;
 
 int main(int argc, char** argv)
 {
-    vec::f32<3> A = { vec::f32<3>::identity(0),
-                      vec::f32<3>::identity(1),
-                      vec::f32<3>::identity(2) };
+	buf::type<vec::f32<3>,3> vv = { vec::f32<3>{0,1,2},vec::f32<3>{3,4,5},vec::f32<3>{6,7,8} };
+	vv.print_header(3, "arr of vector");
+	vv.print(3);
+	vv[0].print(3);
+	vv[1].print(3);
+	vv[2].print(3);
 
-    A[2] = vec::f32<3>::cross3(A[0],A[1]);
+	col::u8 <{R,G,B            }> RGB888       = {1,2,3  }; // array    type
+	col::u8 <{R,G,B,A          }> RGBA8888     = {1,2,3,4}; // array    type
+	col::u8 <{B,G,R,A          }> BGRA8888     = {1,2,3,4}; // array    type
+	col::u8 <{A,R,G,B          }> ARGB8888     = {1,2,3,4}; // array    type
+	col::u8 <{A,B,G,R          }> ABGR8888     = {1,2,3,4}; // array    type
 
-    A[2].print_header(3, "cross3");
-    A[2].print(3);
+	col::f32<{R,G,B            }> RGBF32       = {1,2,3  }; // array    type
+	col::f32<{R,G,B,A          }> RGBAF32      = {1,2,3,4}; // array    type
+	col::f32<{A,R,G,B          }> ARGBF32      = {1,2,3,4}; // array    type
+	col::f32<{A,B,G,R          }> ABGRF32      = {1,2,3,4}; // array    type
+	col::f32<{B,G,R,A          }> BGRAF32      = {1,2,3,4}; // array    type
 
-    col::u8 <{R,G,B            }> RGB888       = {1,2,3  }; // array    type
-    col::u8 <{R,G,B,A          }> RGBA8888     = {1,2,3,4}; // array    type
-    col::u8 <{B,G,R,A          }> BGRA8888     = {1,2,3,4}; // array    type
-    col::u8 <{A,R,G,B          }> ARGB8888     = {1,2,3,4}; // array    type
-    col::u8 <{A,B,G,R          }> ABGR8888     = {1,2,3,4}; // array    type
+	col::u16<{R,G,B  },{5,6,5  }> RGB565       = {10,32,20};   // bitfield type
+	col::u16<{B,G,R  },{5,6,5  }> BGR565       = {10,32,20};   // bitfield type
+	col::u16<{R,G,B,A},{5,5,5,1}> RGBA5551     = {10,15,20,1}; // bitfield type
+	col::u16<{R,G,B,A},{4,4,4,4}> RGBA4444     = {5,8,12,15};  // bitfield type
 
-    col::f32<{R,G,B            }> RGBF32       = {1,2,3  }; // array    type
-    col::f32<{R,G,B,A          }> RGBAF32      = {1,2,3,4}; // array    type
-    col::f32<{A,R,G,B          }> ARGBF32      = {1,2,3,4}; // array    type
-    col::f32<{A,B,G,R          }> ABGRF32      = {1,2,3,4}; // array    type
-    col::f32<{B,G,R,A          }> BGRAF32      = {1,2,3,4}; // array    type
+	col::u8 <{R,G,B  },{2,4,2  }> RGB242       = {1,2,3  }; // bitfield type
+	col::u8 <{R,G,B,A},{2,2,2,2}> RGBA2222     = {1,2,3,0}; // bitfield type
 
-    col::u16<{R,G,B  },{5,6,5  }> RGB565       = {1,2,3  }; // bitfield type
-    col::u16<{R,G,B,A},{5,5,5,1}> RGBA5551     = {1,2,3,4}; // bitfield type
-    col::u16<{R,G,B,A},{4,4,4,4}> RGBA4444     = {1,2,3,4}; // bitfield type
-
-    col::u8 <{R,G,B  },{2,4,2  }> RGB242       = {1,2,3  }; // bitfield type
-    col::u8 <{R,G,B,A},{2,2,2,2}> RGBA2222     = {1,2,3,0}; // bitfield type
-
-    col::u16<{R,G,B            }> RGB161616    = {1,2,3  }; // array    type
-    col::u16<{R,G,B,A          }> RGBA16161616 = {1,2,3,4}; // array    type
+	col::u16<{R,G,B            }> RGB161616    = {1,2,3  }; // array    type
+	col::u16<{R,G,B,A          }> RGBA16161616 = {1,2,3,4}; // array    type
 
     exit(EXIT_SUCCESS);
 }
 ```
 ```fortran
 |vector                                 | typ|alg|vec|alg|mode           |cnt
-|+1.00e+00 +0.00e+00 +0.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/vector|4
-|+0.00e+00 +1.00e+00 +0.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/vector|4
+|+1.00e+00 +0.00e+00 +0.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/linear|4
+|+0.00e+00 +1.00e+00 +0.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/linear|4
 |cross3                                 | typ|alg|vec|alg|mode           |cnt
-|+0.00e+00 +0.00e+00 +1.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/vector|4
+|+0.00e+00 +0.00e+00 +1.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/linear|4
 |cross4                                 | typ|alg|vec|alg|mode           |cnt
-|-0.00e+00 +0.00e+00 -0.00e+00 +1.00e+00|   4|  4| 16| 16|adaptive/vector|4
+|-0.00e+00 +0.00e+00 -0.00e+00 +1.00e+00|   4|  4| 16| 16|adaptive/linear|4
 |cross2 MLR_CCW/MLR_CW                  | typ|alg|vec|alg|mode           |cnt
-|-0.00e+00 +1.00e+00 +0.00e+00 -1.00e+00|   4|  4| 16| 16|adaptive/vector|4
+|-0.00e+00 +1.00e+00 +0.00e+00 -1.00e+00|   4|  4| 16| 16|adaptive/linear|4
 |dot4                                   | typ|alg|vec|alg|mode           |cnt
-|+0.00e+00 +0.00e+00 +0.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/vector|4
+|+0.00e+00 +0.00e+00 +0.00e+00 +0.00e+00|   4|  4| 16| 16|adaptive/linear|4
 |sum                                    | typ|alg|vec|alg|mode           |cnt
-|+1.00e+00 +1.00e+00 +1.00e+00 +1.00e+00|   4|  4| 16| 16|adaptive/vector|4
+|+1.00e+00 +1.00e+00 +1.00e+00 +1.00e+00|   4|  4| 16| 16|adaptive/linear|4
 
 |vector                       | typ|alg|vec|alg|mode           |cnt
 |+1.00e+00 +0.00e+00 +0.00e+00|   4|  4| 12|  4|adaptive/scalar|3
 |+0.00e+00 +1.00e+00 +0.00e+00|   4|  4| 12|  4|         scalar|3
-|+0.00e+00 +0.00e+00 +1.00e+00|   4|  4| 16| 16|         vector|3
+|+0.00e+00 +0.00e+00 +1.00e+00|   4|  4| 16| 16|         linear|3
 |un/aligned add               | typ|alg|vec|alg|mode           |cnt
 |+0.00e+00 +1.00e+00 +1.00e+00|   4|  4| 12|  4|adaptive/scalar|3
 |+1.00e+00 +0.00e+00 +1.00e+00|   4|  4| 12|  4|         scalar|3
-|+1.00e+00 +1.00e+00 +0.00e+00|   4|  4| 16| 16|         vector|3
+|+1.00e+00 +1.00e+00 +0.00e+00|   4|  4| 16| 16|         linear|3
 
-|color RGBA8888                         | typ|alg|vec|alg|mode           |cnt
-|+23       +123      +53       +222     |   1|  1|  4|  4|adaptive/vector|4
-|color RGB888                 | typ|alg|vec|alg|mode           |cnt
-|+23       +123      +53      |   1|  1|  3|  1|adaptive/scalar|3
+|array of vector              | typ|alg|vec|alg|mode           |cnt
+|container container container|  12|  4| 36|  4|adaptive/scalar|3
+|+0.00e+00 +1.00e+00 +2.00e+00|   4|  4| 12|  4|adaptive/scalar|3
+|+3.00e+00 +4.00e+00 +5.00e+00|   4|  4| 12|  4|adaptive/scalar|3
+|+6.00e+00 +7.00e+00 +8.00e+00|   4|  4| 12|  4|adaptive/scalar|3
+
+|bitfield->vector colors                | typ|alg|vec|alg|mode           |cnt
+|+82       +130      +165      +0       |   1|  1|  3|  1|adaptive/scalar|3
+|+165      +130      +82       +0       |   1|  1|  3|  1|adaptive/scalar|3
+|+255      +85       +136      +204     |   1|  1|  4|  4|adaptive/linear|4
+|+85       +136      +204      +255     |   1|  1|  4|  4|adaptive/linear|4
+|+1.00e+00 +6.45e-01 +4.84e-01 +3.23e-01|   4|  4| 16| 16|adaptive/linear|4
+|+3.23e-01 +4.84e-01 +6.45e-01 +1.00e+00|   4|  4| 16| 16|adaptive/linear|4
 ```
 # Links
 ## Other C++ Math Libraries
