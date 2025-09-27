@@ -78,15 +78,11 @@ typedef enum {
 #define MLR_CCW 0x0901
 
 template<typename T>
-concept scalar = std::integral<T> || std::floating_point<T>;
-template<typename T>
 concept iscalar = std::integral<T>;
 template<typename T>
 concept fscalar = std::floating_point<T>;
-template<scalar T>
-bool non_zero(T i) { return i != 0; }
-template<size_t N>
-concept power_of_two = (std::popcount(N) == 1);
+template<typename T>
+concept scalar = iscalar<T> || fscalar<T>;
 template<typename T>
 concept container = requires(T t)
 {
