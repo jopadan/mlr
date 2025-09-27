@@ -48,11 +48,9 @@ int main(int argc, char** argv)
 	col::u16<{R,G,B,A},{4,4,4,4}>   RGB565 = {10,32,20};
 
     /* standard array color types */
-	col::u8 <{R,G,B}>               RGB888         = {1,2,3  };
-	col::u8 <{R,G,B},align::linear> ALIGNED_RGB888 = {1,2,3  };
-	col::u8 <{R,G,B,A}>             RGBA8888       = {1,2,3,4};
-	col::f32<{R,G,B}>               RGBF32         = {1,2,3  };
-	col::f32<{R,G,B},align::linear> ALIGNED_RGBF32 = {1,2,3  };
+	col::u8 <{R,G,B}            >   RGB888         = {1,2,3  };
+	col::u8 <{R,G,B,A}          >   RGBA8888       = {1,2,3,4};
+	col::f32<{R,G,B}>           >   RGBF32         = {1,2,3  };
 
     exit(EXIT_SUCCESS);
 }
