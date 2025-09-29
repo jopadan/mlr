@@ -98,37 +98,5 @@ enum channel
 	A = 3,
 };
 
-namespace id
-{
-/* quake scalar type */
-using qboolean        = eb32;
-const qboolean qfalse = MLR_FALSE;
-const qboolean qtrue  = MLR_TRUE;
-using qint8_t         = i8;
-using quint8_t        = u8;
-using qint16_t        = i16;
-using quint16_t       = u16;
-using qint32_t        = i32;
-using quint32_t       = u32;
-using qint64_t        = i64;
-using quint64_t       = u64;
-using qintptr_t       = sptr;
-using quintptr_t      = uptr;
-using qssize_t        = ssz;
-using qsize_t         = usz;
-using qutime_ns_t     = utime;
-using qstime_ns_t     = stime;
-using qtime_ns_t      = qutime_ns_t;
-using vecf_t          = f32;
-using vecd_t          = f64;
-using vec_t           = vecf_t;
-using qbyte           = quint8_t;
-using qindex          = idx;
-using qint            = s32;
-using qsizei          = sze;
-using qbitfield32_t   = bf32;
-using qbitfield16_t   = bf16;
-};
-
 };
 

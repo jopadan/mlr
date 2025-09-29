@@ -306,16 +306,4 @@ struct type : buf::type<T,N,A>
 
 
 };
-
-	/* quake vector types */
-	using vecf_t  = f32;
-	using vecd_t  = f64;
-	using vec_t   = vecf_t;
-
-	using vec2_t  = vec::type<vec_t, 2>;
-	using vec3_t  = vec::type<vec_t, 3>;
-	using avec3_t = vec::type<vec_t, 3, align::linear>;
-	using vec4_t  = vec::type<vec_t, 4>;
-	using vec5_t  = vec::type<vec_t, 5>;
-	using avec5_t = vec::type<vec_t, 5, align::linear>;
 };
