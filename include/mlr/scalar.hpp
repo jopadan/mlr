@@ -53,7 +53,7 @@ using uptr     = uintptr_t;
 using szeptr   = sptr;
 
 using bf16     = u16;
-using bf32     = unsigned int;
+using bf32     = u32;
 
 using stime    = i64;
 using utime    = u64;

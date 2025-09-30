@@ -30,6 +30,7 @@ using qtime_ns_t      = qutime_ns_t;
 using vecf_t          = f32;
 using vecd_t          = f64;
 using vec_t           = vecf_t;
+using ivec_t          = i32;
 using qbyte           = quint8_t;
 using qindex          = idx;
 using qint            = s32;
@@ -65,36 +66,38 @@ namespace math::mot
 	using vec_t = type<vec_t>;
 };
 
-using vec2_t   = vec::vec_t<2>;
-using vec3_t   = vec::vec_t<3>;
-using avec3_t  = vec::vec_t<3, align::linear>;
-using vec4_t   = vec::vec_t<4>;
-using vec5_t   = vec::vec_t<5>;
-using avec5_t  = vec::vec_t<5, align::linear>;
+using vec2_t     = vec::vec_t<2                 >;
+using vec3_t     = vec::vec_t<3                 >;
+using avec3_t    = vec::vec_t<3, align::linear  >;
+using vec4_t     = vec::vec_t<4                 >;
+using vec5_t     = vec::vec_t<5                 >;
+using avec5_t    = vec::vec_t<5, align::linear  >;
 
-using col4_t   = col::u8<{R,G,B,A}>;
-using col3_t   = col::u8<{R,G,B}>;
-using col4f_t  = col::f32<{R,G,B,A}>;
-using col3f_t  = col::f32<{R,G,B}>;
-using bfcol4_t = col::u16<{R,G,B,A},{4,4,4,4}>;
-using bfcol3_t = col::u16<{R,G,B},{5,6,6}>;
+using rgba8888_t = col::u8 <{R,G,B,A}           >;
+using rgb888_t   = col::u8 <{R,G,B  }           >;
+using rgbaf32_t  = col::f32<{R,G,B,A}           >;
+using rgbf32_t   = col::f32<{R,G,B  }           >;
 
-using mat3_t   = mat::vec_t<3,3>;
-using lamat3_t = mat::vec_t,3,3, align::linear>;
-using amat3_t  = mat::vec_t,3,3, align::matrix>;
-using mat4_t   = mat::vec_t,4,4>;
-using lamat3_t = mat::vec_t,4,4, align::linear>;
-using amat4_t  = mat::vec_t,4,4, align::matrix>;
+using rgba4444_t = col::u16<{R,G,B,A},{4,4,4,4} >;
+using rgb565_t   = col::u16<{R,G,B}  ,{5,6,6}   >;
+using rgb5551_t  = col::u16<{R,G,B}  ,{5,5,5,1} >;
 
-using mat34_t   = mat::vec_t<3,4>;
-using lamat34_t = mat::vec_t,3,4, align::linear>;
-using amat34_t  = mat::vec_t,3,4, align::matrix>;
+using mat3_t     = mat::vec_t<3,3               >;
+using lamat3_t   = mat::vec_t,3,3, align::linear>;
+using amat3_t    = mat::vec_t,3,3, align::matrix>;
+using mat4_t     = mat::vec_t,4,4               >;
+using lamat3_t   = mat::vec_t,4,4, align::linear>;
+using amat4_t    = mat::vec_t,4,4, align::matrix>;
 
-using mat43_t   = mat::vec_t<4,3>;
-using lamat43_t = mat::vec_t,4,3, align::linear>;
-using amat43_t  = mat::vec_t,4,3, align::matrix>;
+using mat34_t    = mat::vec_t<3,4               >;
+using lamat34_t  = mat::vec_t,3,4, align::linear>;
+using amat34_t   = mat::vec_t,3,4, align::matrix>;
 
-using versor   = ver::vec_t;
-using quat_t   = qut::vec_t;
-using oct_t    = oct::vec_t;
-using mot_t    = mot::vec_t;
+using mat43_t    = mat::vec_t<4,3               >;
+using lamat43_t  = mat::vec_t,4,3, align::linear>;
+using amat43_t   = mat::vec_t,4,3, align::matrix>;
+
+using versor     = ver::vec_t;
+using quat_t     = qut::vec_t;
+using oct_t      = oct::vec_t;
+using mot_t      = mot::vec_t;
