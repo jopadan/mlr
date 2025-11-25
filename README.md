@@ -201,4 +201,4 @@ using mot_t      = mot::vec_t;
 [35]: https://github.com/g-truc/glm/
 [36]: https://github.com/nicebyte/nicemath/
 [37]: https://github.com/kokkos/kokkos/
-[38]: https://paulsprojects.net/opengl/q3bsp/
+[38]: https://www.paulsprojects.net/opengl/q3bsp/q3bsp.html
