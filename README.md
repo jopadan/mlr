@@ -30,10 +30,9 @@ add_compile_options(-march=native -mfpmath=[your SIMD instruction set] -O3)
 ```c++
 #include <mlr/scalar.hpp>
 #include <mlr/vector.hpp>
-#include <mlr/color.hpp>
+#include <mlr/colour.hpp>
 #include <mlr/matrix.hpp>
-#include <nlr/quaternion.hpp>
-#include <mlr/octonion.hpp>
+#include <nlr/versor.hpp>
 
 using namespace math;
 
@@ -148,6 +147,7 @@ using mot_t      = mot::vec_t;
 - [Prey2006/neo/idlib/math][22]
 - [andrei-drexler/q321][27]
 - [hogsy/chronon][29]
+- [paulbaker/q3bsp][38]
 ## War for the Overworld C++ Math Library 
 - [CML][20]
 ## Math code/tutorials
@@ -201,3 +201,4 @@ using mot_t      = mot::vec_t;
 [35]: https://github.com/g-truc/glm/
 [36]: https://github.com/nicebyte/nicemath/
 [37]: https://github.com/kokkos/kokkos/
+[38]: https://paulsprojects.net/opengl/q3bsp/
